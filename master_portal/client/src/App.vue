@@ -52,6 +52,8 @@ export default {
 .modal-open .navbar-fixed-top {
     right: 15px;
 }
-
+.bg-bg_brown{
+  background:#91602f ;
+}
 
 </style>

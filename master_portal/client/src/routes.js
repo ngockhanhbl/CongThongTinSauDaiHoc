@@ -22,7 +22,9 @@ const SearchDrug = () => import ("./components/content/SearchDrug");
 const DrugDetails = () => import ("./components/content/DrugDetails");
 const PatientData = () => import ("./components/content/patient_modules/PatientData");
 const DrugManagement = () => import ("./components/content/hospital_modules/DrugManagement");
- 
+
+import News from "./components/content/News";
+import ThongBao from "./components/content/ThongBao";
 
 export const routes = [
   // { path: "*", redirect:'home' },
@@ -50,5 +52,10 @@ export const routes = [
   { path: "/DrugDetails/:id", name: "drugdetails", component: DrugDetails },
   { path: "/UpdateInformationRegister", name: "UpdateInformationRegister", component: UpdateInformationRegister },
   { path: "/PatientData", name: "patientdata", component: PatientData },
+
+
+  { path: "/News", name: "news", component: News },
+  { path: "/ThongBao", name: "thongbao", component: ThongBao },
+
 
 ];

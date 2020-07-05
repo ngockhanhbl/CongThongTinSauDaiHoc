@@ -24,7 +24,7 @@
             <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">Đăng Nhập</b-nav-item></router-link>
           </div>
           <div>
-            <input type="text" v-model="email" placeholder="Tìm kiếm">
+            <input type="text" placeholder="Tìm kiếm">
           </div>
         </div>
         <!-- <router-link to="/login"><b-nav-item  v-if="isUserLoggedIn === 'false' || isUserLoggedIn === 'null' " href="login">Đăng Nhập</b-nav-item></router-link>
@@ -41,13 +41,23 @@
         <b-navbar-nav ></b-navbar-nav >
         <b-navbar-nav align="center" class="ml-auto">
             <router-link style="text-decoration: none; color: inherit;" to="/"><b-nav-item href="/login">TRANG CHỦ</b-nav-item></router-link>&nbsp;
-            <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">GIỚI THIỆU</b-nav-item></router-link>&nbsp;
+            <router-link style="text-decoration: none; color: inherit;" to="/aboutus"><b-nav-item href="/aboutus">GIỚI THIỆU</b-nav-item></router-link>&nbsp;
             <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">TIN TỨC & SỰ KIỆN</b-nav-item></router-link>&nbsp;
             <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">ĐÀO TẠO TIẾN SĨ</b-nav-item></router-link>&nbsp;
             <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">ĐÀO TẠO THẠC SĨ</b-nav-item></router-link>&nbsp;
-            <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">NGHIÊN CỨU KHOA HỌC</b-nav-item></router-link>&nbsp;
-            <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">HỢP TÁC QUỐC TÊ</b-nav-item></router-link>&nbsp;
-        </b-navbar-nav>
+            
+            <b-nav-item-dropdown id="nav7_ddown" right >
+              <template slot="button-content">NGHIÊN CỨU KHOA HỌC</template>
+              <b-dropdown-item href="/login">Đề Tài Khoa Học</b-dropdown-item>
+              <b-dropdown-item href="/login">Sản Phẩm Khoa Học</b-dropdown-item>
+              <b-dropdown-item href="/login">Giải Thưởng Khoa Học</b-dropdown-item>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item>Biểu Mẫu</b-dropdown-item>
+            </b-nav-item-dropdown>
+
+            <b-nav-item @click="jumptoHopTac">ĐƠN VỊ HỢP TÁC</b-nav-item>
+
+          </b-navbar-nav>
         <b-navbar-nav class="ml-auto"></b-navbar-nav>
       </b-navbar>
     </div>
@@ -60,7 +70,7 @@
 import { mapGetters} from "vuex";
 export default {
   data(){
-    return{
+    return {
       get isUserLoggedIn() {
       	return localStorage.getItem('isUserLoggedIn' || false);
       }
@@ -72,6 +82,10 @@ export default {
   methods: {
     navigationTo(route){
       this.$router.push(route)
+    },
+    jumptoHopTac(){
+        let limit = document.body.offsetHeight - window.innerHeight;
+        window.scrollTo(0,limit/1.12);
     },
     async logout () {
       this.$store.dispatch('setToken', null)

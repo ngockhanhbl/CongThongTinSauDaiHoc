@@ -7,55 +7,51 @@
 
       <!-- About Company -->
       <div class="col-md-12 title-faqs">
-        VỀ CÔNG TY
+        VỀ TỔ CHỨC
       </div>
 
       <div class="col-md-12 wrapper-faqs " @click="EisShowAnswer(1)">
         <div class="question">
-          <span class="question">EHR MedicalBlock là gì ?</span>
+          <span class="question">DH TN&MT Có Phải Là Đơn Vị Uy Tín ?</span>
           <span class="down-arrow"><img :src="ShowDownUp_1.image"/></span>
         </div>
         <transition name="fade">
           <div class="answer" v-show="ShowDownUp_1.isShow">
-            Chúng tôi là công ty công nghệ, chuyên về lĩnh vực y tế, chăm sóc sứa khỏe cho cộng đồng
-            với hơn 12 năm kinh nghiệm, chúng tôi tin chắc sẽ làm hài lòng những vị khách khó tính nhất
+           Có, Tất Nhiên
           </div>
         </transition>
       </div>
 
       <div class="col-md-12 wrapper-faqs " @click="EisShowAnswer(2)">
         <div class="question">
-          <span class="question">EHR MedicalBlock cung cấp những loại dịch vụ nào ?</span>
+          <span class="question">Bằng Thạc Sĩ, Tiến Sĩ Do Ai Cấp ?</span>
           <span class="down-arrow"><img :src="ShowDownUp_2.image"/></span>
         </div>
         <transition name="fade">
           <div class="answer" v-show="ShowDownUp_2.isShow">
-            Chúng tôi cung cấp giải pháp quản lý hồ sơ bệnh án, giúp người bệnh theo dõi bệnh án
-            của mình 1 cách trực quan, khoa học. Do đó có thể chủ động trong mọi tình huống
+            Do Đơn Vị DH TN&MT Cấp
           </div>
         </transition>
       </div>
       <div class="col-md-12 wrapper-faqs " @click="EisShowAnswer(3)">
         <div class="question">
-          <span class="question">Sự khác biệt của bạn đối với các công ty đối thủ là gì ?</span>
+          <span class="question">Bằng Thạc Sĩ, Tiến Sĩ Khi Học Tại Đây Liệu Có Giá Trị </span>
           <span class="down-arrow"><img :src="ShowDownUp_3.image"/></span>
         </div>
         <transition name="fade">
           <div class="answer" v-show="ShowDownUp_3.isShow">
-            Thế mạnh của EHR MedicalBlock là công nghệ của chúng tôi sử dụng
-            mang lại trải nghệm tốt nhất có thể cho người dùng, đồng thời củng là công ty tiên
-            phong trong lĩnh vực quản lý hồ sơ bệnh án cho cộng đồng.
+            Có.
           </div>
         </transition>
       </div>
       <div class="col-md-12 wrapper-faqs " @click="EisShowAnswer(4)">
         <div class="question">
-          <span class="question">EHR MedicalBlock có cung cấp thông tin của chúng bên thứ ba ?</span>
+          <span class="question">Tôi Có Thể Tra Cứu Thông Tin Ở Đâu ?</span>
           <span class="down-arrow"><img :src="ShowDownUp_4.image"/></span>
         </div>
         <transition name="fade">
           <div class="answer" v-show="ShowDownUp_4.isShow">
-            Không. Chúng tôi bảo mật tuyệt đối hồ sơ bệnh án của cá nhân bạn
+            Bạn Có Thể Theo Dõi Tại Mục Tin Tức Của Website
           </div>
         </transition>
       </div>
@@ -63,51 +59,51 @@
       <!-- About Services -->
 
       <div class="col-md-12 title-faqs">
-        VỀ DỊCH VỤ
+        VỀ CHƯƠNG TRÌNH CAO HỌC
       </div>
 
       <div class="col-md-12 wrapper-faqs " @click="EisShowAnswer(5)">
         <div class="question">
-          <span class="question">EHR MedicalBlock cung cấp gì cho khách hàng ?</span>
+          <span class="question">DH TN&MT Có Chương Trình Sau Đại Học Không ?</span>
           <span class="down-arrow"><img :src="ShowDownUp_5.image"/></span>
         </div>
         <transition name="fade">
           <div class="answer" v-show="ShowDownUp_5.isShow">
-            Chúng tôi cung cấp cho khách hàng phần mềm quản lý hồ sơ bệnh án
+            Có. Chúng tôi hiện có các trường trình sau đại học bao gồm học liên thạc sĩ, và tiến sĩ
           </div>
         </transition>
       </div>
 
       <div class="col-md-12 wrapper-faqs " @click="EisShowAnswer(6)">
         <div class="question">
-          <span class="question">Thông tin hồ sơ bệnh án của tôi có được lưu trữ an toàn không ?</span>
+          <span class="question">Những Ngành Nào DH TN&MT Đang Triễn Khai ?</span>
           <span class="down-arrow"><img :src="ShowDownUp_6.image"/></span>
         </div>
         <transition name="fade">
           <div class="answer" v-show="ShowDownUp_6.isShow">
-            Thông tin hồ sơ bệnh án của bạn sẽ được lưu trữ một cách tuyệt đối án toàn. 
+            Bao Gồm Tất Cả Các Ngành Mà Trường Đang Triễn Khai 
           </div>
         </transition>
       </div>
       <div class="col-md-12 wrapper-faqs " @click="EisShowAnswer(7)">
         <div class="question">
-          <span class="question">Ai là người ghi lại lịch sử hồ sơ bệnh án của tôi ?</span>
+          <span class="question">Chi Phí Theo Học Sau Đại Học Như Thế Nào ?</span>
           <span class="down-arrow"><img :src="ShowDownUp_7.image"/></span>
         </div>
         <transition name="fade">
           <div class="answer" v-show="ShowDownUp_7.isShow">
-            Là những bác sĩ ở những cơ sở y tế, do bạn cấp quyền
+            Tuỳ Vào Ngành, nhưng giao động trong khoản
           </div>
         </transition>
       </div>
       <div class="col-md-12 wrapper-faqs " @click="EisShowAnswer(8)">
         <div class="question">
-          <span class="question">Phí dịch vụ có miễn phí không ?</span>
+          <span class="question">Tôi Có Thể Đi Học Thạc Sĩ Vào Buổi Tối Được Không ?</span>
           <span class="down-arrow"><img :src="ShowDownUp_8.image"/></span>
         </div>
         <transition name="fade">
           <div class="answer" v-show="ShowDownUp_8.isShow">
-            Hoàn Toàn Miễn phí ! Chăm sóc sức khỏe cộng đồng là trách nhiệm của công ty chúng tôi !
+            Có !
           </div>
         </transition>
       </div>

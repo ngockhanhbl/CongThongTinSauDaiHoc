@@ -10,7 +10,7 @@
               Thông Tin
             </span>
             <span class="content-footer">
-              <router-link to="/aboutus"><div>Về Chúng Tôi</div></router-link>
+              <router-link to="/aboutus"><div>Giới Thiệu</div></router-link>
               <router-link to="/jobs"><div>Tuyển Dụng</div></router-link> 
                <router-link to="/policy"><div>Chính Sách</div></router-link> 
                <router-link to="/terms"><div>Điều Khoản</div></router-link> 
@@ -26,7 +26,7 @@
               <div>Sách Trắng</div>
               <div>Sự Kiện</div>
               <router-link to="/faqs"> <div>FAQs</div></router-link>
-              <router-link to="/partner"><div>Đơn Vị Hợp Tác</div></router-link>
+              <div>Đơn Vị Hợp Tác</div>
             </span>
           </div>
         </span>
@@ -107,7 +107,7 @@ export default {
 <style scoped>
 .footer {
   /* sellect: #4f5e72; */
-  background-image: linear-gradient(#1874cd, #104e8b);
+  background-image: linear-gradient(#17a2b8, #104e8b);
 }
 .footer-top img {
   height: 30vh;
@@ -165,7 +165,7 @@ export default {
   padding: 4px;
   font-size: 12px;
   width: 15vw;
-  background: #1874cd;
+  background: #17a2b8;
   color: white;
 }
 ::placeholder {

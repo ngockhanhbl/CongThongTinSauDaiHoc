@@ -16,8 +16,6 @@
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
       >
-        
-
         <b-carousel-slide
           caption="Lễ Kí Kết"
           text="Nghiên Cứu Đào Tạo Tiến Sĩ, Thạc Sĩ Và Nghiên Cứu Khoa Học"
@@ -87,153 +85,68 @@
       </b-carousel>
   </div>
 
-  <div class="container-fluid" id="cooperation">
-    <div class="cooperation-unit-title containerCus pt-1">
-      <h3>Đơn Vị Hợp Tác</h3>
-    </div>
-    <div class="cooperation-unit-logo row justify-content-around">
-      <img src="../assets/images/corporation4.png" alt />
-      <img src="../assets/images/corporation1.png" alt />
-      <img src="../assets/images/corporation5.png" alt />
-      <img src="../assets/images/corporation2.png" alt />
-      <img src="../assets/images/corporation3.png" alt />
-      <img src="../assets/images/corporation6.png" alt />
-    </div>
+  
+  <div class="container-fluid pt-3 vol_content">
+    <b-row>
+      <b-col>
+        <b-card header-tag="header" header-bg-variant="info">
+          <template v-slot:header>
+            <div class="d-flex align-items-center ">
+              <span class="phatsong"><img src="@/assets/images/phatsong.png"></span>
+              <h6 class="mb-0 ml-2 text-white">TIN TỨC & SỰ KIỆN</h6>
+            </div>
+          </template>
+          <b-card-text>
+            <app-news />
+          </b-card-text>
+        </b-card>
+      </b-col>
+    </b-row>
+
+    <b-row class="mt-3"></b-row>
+
+    <b-row>
+      <b-col>
+        <b-card header-tag="header" header-bg-variant="dark">
+          <template v-slot:header>
+            <div class="d-flex align-items-center ">
+              <span class="phatsong"><img src="@/assets/images/loaloa.svg"></span>
+              <h6 class="mb-0 ml-2 text-white">THÔNG BÁO & TUYỂN SINH CAO HỌC</h6>
+            </div>
+          </template>
+          <b-card-text>
+            <app-thongbao />
+          </b-card-text>
+        </b-card>
+      </b-col>
+    </b-row>
   </div>
 
-    <!-- section 2 -->
-    <section id="section1" class="section">
-      <div class="containerCus">
-        <h2 class="section-head">
-          <img src="../assets/images/deskandphone.svg" alt />
-          <span class="ml-3">Điện Tử Hoá Hồ Sơ Y Tế</span>
-        </h2>
-        <!-- <span class="content"> -->
-        <p class="lead content-section2">
-          Tất cả mọi thông tin của người bệnh như thông tin cá nhân, nhóm máu,
-          lịch sử bệnh án, lịch sử khám chữa bệnh và nhiều thông tin khác nữa
-          đều sẽ được lưu trữ trong một hồ sơ được xây dựng dưới công nghệ
-          của EHR MedicalBlock.
-        </p>
-        <div class="d-flex justify-content-center pb-3">
-          <a href="#" class="btn btn-primary get-started">Bắt Đầu</a>
-        </div>
-        <img src="../assets/images/session1.png" alt />
-        <!-- </span> -->
+  <div class="pt-4 vol_content">
+
+  </div>
+
+
+  <div class="container-fluid " id="cooperation">
+      <div class="cooperation-unit-title containerCus pt-1">
+        <h3>Đơn Vị Hợp Tác</h3>
       </div>
-    </section>
-
-    <!-- section 3 - benefic -->
-
-    <!-- 1 of 4 -->
-
-    <div class="container-fluid pt-3 " id="benefit-1">
-      <div class="row">
-        <div class="d-flex col-md-12">
-          <div class="benefit-title col-md-3">
-            <samp class="lead">
-              Rút Ngắn Thời Gian Khám Và Chữa Bệnh
-            </samp>
-          </div>
-
-          <div class="benefit-icon col-md-1">
-            <img src="../assets/images/clock.svg" />
-          </div>
-
-          <div class="benefit-content col-md-8">
-            <samp>
-              Nhờ có hồ sơ bệnh án điện tử, mà các bác sĩ có thể tiếp cận bệnh
-              án của bệnh nhân một cách nhanh chóng hơn. Từ đó, rút ngắn được
-              thời gian khám chữa bệnh, cũng như tăng cường tính hiệu quả cho
-              công tác khám chữa bệnh.
-            </samp>
-          </div>
-        </div>
+      <div class="cooperation-unit-logo row justify-content-around pt-3 pb-4">
+        <img src="../assets/images/lkdh1.png" alt />
+        <img src="../assets/images/lkdh2.png" alt />
+        <img src="../assets/images/lkdh3.png" alt />
+        <img src="../assets/images/lkdh4.png" alt />
+        <img src="../assets/images/lkdh5.png" alt />
       </div>
     </div>
 
-    <!-- 2 of 4 -->
-    <div class="container-fluid pt-3 " id="benefit-2">
-      <div class="row">
-        <div class="d-flex col-md-12">
-          <div class="benefit-title col-md-3">
-            <samp class="lead">
-              Không Cần Trung Gian Quản Lý
-            </samp>
-          </div>
-
-          <div class="benefit-icon col-md-1">
-            <img src="../assets/images/business.svg" />
-          </div>
-
-          <div class="benefit-content col-md-8">
-            <samp>
-              Hồ sơ bệnh án sẽ do chính bệnh nhân sở
-              hữu, quản lý, không cần trung gian thứ 3. Điều này giúp người bệnh
-              có thể theo dõi hiệu quả bệnh án của mình. Đồng thời, các cơ sở y
-              tế cũng tiết kiệm được chi phí khi không cần nhân sự cho việc quản
-              lý bệnh án.
-            </samp>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3 of 4 -->
-    <div class="container-fluid pt-3 " id="benefit-3">
-      <div class="row">
-        <div class="d-flex col-md-12 ">
-          <div class="benefit-title col-md-3">
-            <samp class="lead">
-              Tăng Tính Minh Bạch Hoá Thông Tin
-            </samp>
-          </div>
-
-          <div class="benefit-icon col-md-1">
-            <img src="../assets/images/hacker.svg" />
-          </div>
-
-          <div class="benefit-content col-md-8">
-            <samp>
-              Nhờ có hồ sơ bệnh án điện tử, mà các bác sĩ có thể tiếp cận bệnh
-              án của bệnh nhân một cách nhanh chóng hơn. Từ đó, rút ngắn được
-              thời gian khám chữa bệnh, cũng như tăng cường tính hiệu quả cho
-              công tác khám chữa bệnh.
-            </samp>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 4 of 4 -->
-    <div class="container-fluid pt-3 " id="benefit-4">
-      <div class="row">
-        <div class="d-flex col-md-12 ">
-          <div class="benefit-title col-md-3">
-            <samp class="lead">
-              Truy Xuất Hiệu Quả Nguồn Gốc Dược Phẩm
-            </samp>
-          </div>
-
-          <div class="benefit-icon col-md-1">
-            <img src="../assets/images/pills.svg" />
-          </div>
-
-          <div class="benefit-content col-md-8">
-            <samp>
-              EHR MedicalBlock còn có thể giúp truy xuất nguồn gốc dược phẩm
-              một cách hiệu quả nhất. Giúp tránh được các vấn đề thuốc giả,
-              thuốc kém chất lượng… trong lĩnh vực y tế.
-            </samp>
-          </div>
-
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
+import News from '@/components/content/News.vue'
+import ThongBao from '@/components/content/ThongBao.vue'
+
   export default {
     data() {
       return {
@@ -241,13 +154,18 @@
         sliding: null
       }
     },
+    components: {
+      "app-news": News,
+      "app-thongbao": ThongBao,
+    },
     methods: {
-      onSlideStart(slide) {
+      onSlideStart() {
         this.sliding = true
       },
-      onSlideEnd(slide) {
+      onSlideEnd() {
         this.sliding = false
-      }
+      },
+      
     }
   }
 </script>
@@ -305,10 +223,10 @@ video {
   width: 30vw;
 }
 
-.cooperation-unit-title {
+.vol_content-unit-title {
   color: #0b3b5b;
 }
-#cooperation {
+.vol_content {
   background-color: rgba(192, 192, 192, 0.3);
 }
 
@@ -322,7 +240,9 @@ video {
 .lead a:hover {
   transform: scale(1.02);
 }
-
+.cooperation-unit-logo img{
+  max-width: 15vw;
+}
 .content-section2 {
   color: #000;
   font-size: 1.2rem;
@@ -353,6 +273,16 @@ video {
 #benefit-4 .benefit-content {
   color: #555555;
 }
+.phatsong img{
+  height:2rem;
+  width:2rem;
+}
+header .card-header{
+  background:red;
+}
 
+.bg-bg_brown{
+  background:#91602f ;
+}
 
 </style>
