@@ -8,14 +8,14 @@
           <div>THÀNH PHỐ HỒ CHÍ MINH</div>
         </div>
       </b-navbar-nav>
-      <b-navbar-nav class="logo ml-auto">
+      <b-navbar-nav class="logo ml-auto pr-5">
         <router-link to="/">
           <img src="@/assets/images/logo_ure.png">
         </router-link>
       </b-navbar-nav>
 
 
-      <b-navbar-nav class="ml-auto">
+      <b-navbar-nav class="ml-auto pr-4">
         <!-- <router-link to="/searchdrug"><b-nav-item href="/searchdrug">Tra Cứu Thuốc</b-nav-item></router-link>
         <router-link to="/aboutus"><b-nav-item href="/aboutus">Về Chúng Tôi</b-nav-item></router-link> -->
         <div class="d-flex align-items-center">
@@ -42,15 +42,21 @@
         <b-navbar-nav align="center" class="ml-auto">
             <router-link style="text-decoration: none; color: inherit;" to="/"><b-nav-item href="/login">TRANG CHỦ</b-nav-item></router-link>&nbsp;
             <router-link style="text-decoration: none; color: inherit;" to="/aboutus"><b-nav-item href="/aboutus">GIỚI THIỆU</b-nav-item></router-link>&nbsp;
-            <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">TIN TỨC & SỰ KIỆN</b-nav-item></router-link>&nbsp;
+            <b-nav-item @click="jumptoTTSK">TIN TỨC & SỰ KIỆN</b-nav-item>
             <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">ĐÀO TẠO TIẾN SĨ</b-nav-item></router-link>&nbsp;
             <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">ĐÀO TẠO THẠC SĨ</b-nav-item></router-link>&nbsp;
             
             <b-nav-item-dropdown id="nav7_ddown" right >
               <template slot="button-content">NGHIÊN CỨU KHOA HỌC</template>
-              <b-dropdown-item href="/login">Đề Tài Khoa Học</b-dropdown-item>
-              <b-dropdown-item href="/login">Sản Phẩm Khoa Học</b-dropdown-item>
-              <b-dropdown-item href="/login">Giải Thưởng Khoa Học</b-dropdown-item>
+              <router-link style="text-decoration: none; color: inherit;" to="/detaikhoahoc">
+                <b-dropdown-item href="/detaikhoahoc">Đề Tài Khoa Học</b-dropdown-item>
+              </router-link>
+              <router-link style="text-decoration: none; color: inherit;" to="/sanphamkhoahoc">
+                <b-dropdown-item href="/sanphamkhoahoc">Sản Phẩm Khoa Học</b-dropdown-item>
+              </router-link>
+              <router-link style="text-decoration: none; color: inherit;" to="/giaithuongkhoahoc">
+                <b-dropdown-item href="giaithuongkhoahoc">Giải Thưởng Khoa Học</b-dropdown-item>
+              </router-link>
               <b-dropdown-divider></b-dropdown-divider>
               <b-dropdown-item>Biểu Mẫu</b-dropdown-item>
             </b-nav-item-dropdown>
@@ -84,9 +90,21 @@ export default {
       this.$router.push(route)
     },
     jumptoHopTac(){
-        let limit = document.body.offsetHeight - window.innerHeight;
-        window.scrollTo(0,limit/1.12);
+      this.$router.push({
+        name: 'homepage'
+      })
+      let limit = document.body.offsetHeight - window.innerHeight;
+      window.scrollTo(0,limit/1.12);
     },
+    jumptoTTSK(){
+      this.$router.push({
+        name: 'homepage'
+      })
+      let limit = document.body.offsetHeight - window.innerHeight;
+      window.scrollTo(0,limit/3);
+    },
+
+    
     async logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)

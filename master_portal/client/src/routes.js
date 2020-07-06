@@ -25,6 +25,9 @@ const DrugManagement = () => import ("./components/content/hospital_modules/Drug
 
 import News from "./components/content/News";
 import ThongBao from "./components/content/ThongBao";
+const DeTaiKhoaHoc = () => import ("./components/content/DeTaiKhoaHoc");
+const SanPhamKhoaHoc = () => import ("./components/content/SanPhamKhoaHoc");
+const GiaiThuongKhoaHoc = () => import ("./components/content/GiaiThuongKhoaHoc");
 
 export const routes = [
   // { path: "*", redirect:'home' },
@@ -56,6 +59,9 @@ export const routes = [
 
   { path: "/News", name: "news", component: News },
   { path: "/ThongBao", name: "thongbao", component: ThongBao },
+  { path: "/DeTaiKhoaHoc", name: "detaikhoahoc", component: DeTaiKhoaHoc },
+  { path: "/SanPhamKhoaHoc", name: "sanphamkhoahoc", component: SanPhamKhoaHoc },
+  { path: "/GiaiThuongKhoaHoc", name: "giaithuongkhoahoc", component: GiaiThuongKhoaHoc },
 
 
 ];
