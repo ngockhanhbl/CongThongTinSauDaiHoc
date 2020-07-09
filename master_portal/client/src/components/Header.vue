@@ -43,11 +43,46 @@
             <router-link style="text-decoration: none; color: inherit;" to="/"><b-nav-item href="/login">TRANG CHỦ</b-nav-item></router-link>&nbsp;
             <router-link style="text-decoration: none; color: inherit;" to="/aboutus"><b-nav-item href="/aboutus">GIỚI THIỆU</b-nav-item></router-link>&nbsp;
             <b-nav-item @click="jumptoTTSK">TIN TỨC & SỰ KIỆN</b-nav-item>
-            <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">ĐÀO TẠO TIẾN SĨ</b-nav-item></router-link>&nbsp;
-            <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">ĐÀO TẠO THẠC SĨ</b-nav-item></router-link>&nbsp;
+
+            <b-nav-item-dropdown id="nav7_ddown" right >
+              <template slot="button-content" ><span class="text-white">ĐÀO TẠO TIẾN SĨ</span></template>
+              <router-link style="text-decoration: none; color: inherit;" to="/chuandaura">
+                <b-dropdown-item href="/chuandaura">Chuẩn Đầu Ra</b-dropdown-item>
+              </router-link>
+              <router-link style="text-decoration: none; color: inherit;" to="/sanphamkhoahoc">
+                <b-dropdown-item href="/sanphamkhoahoc">Lịch Bảo Vệ Luận Án</b-dropdown-item>
+              </router-link>
+              <router-link style="text-decoration: none; color: inherit;" to="/giaithuongkhoahoc">
+                <b-dropdown-item href="/giaithuongkhoahoc">Tra Cứu Đề Tài Luận Án</b-dropdown-item>
+              </router-link>
+              <router-link style="text-decoration: none; color: inherit;" to="/dsthacsi">
+                <b-dropdown-item href="/dsthacsi">Danh Sách Tiến Sĩ Đã Được Cấp</b-dropdown-item>
+              </router-link>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item>Biểu Mẫu</b-dropdown-item>
+            </b-nav-item-dropdown>            
+
+            <b-nav-item-dropdown id="nav7_ddown" right >
+              <template slot="button-content" ><span class="text-white">ĐÀO TẠO THẠC SĨ</span></template>
+              <router-link style="text-decoration: none; color: inherit;" to="/chuandaura">
+                <b-dropdown-item href="/chuandaura">Chuẩn Đầu Ra</b-dropdown-item>
+              </router-link>
+              <router-link style="text-decoration: none; color: inherit;" to="/sanphamkhoahoc">
+                <b-dropdown-item href="/sanphamkhoahoc">Lịch Bảo Vệ Luận Án</b-dropdown-item>
+              </router-link>
+              <router-link style="text-decoration: none; color: inherit;" to="/searchdrug">
+                <b-dropdown-item href="/searchdrug">Tra Cứu Đề Tài Luận Án</b-dropdown-item>
+              </router-link>
+              <router-link style="text-decoration: none; color: inherit;" to="/dsthacsi">
+                <b-dropdown-item href="/dsthacsi">Danh Sách Thạc Sĩ Đã Được Cấp</b-dropdown-item>
+              </router-link>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item>Biểu Mẫu</b-dropdown-item>
+            </b-nav-item-dropdown>
+
             
             <b-nav-item-dropdown id="nav7_ddown" right >
-              <template slot="button-content">NGHIÊN CỨU KHOA HỌC</template>
+              <template slot="button-content" ><span class="text-white">NGHIÊN CỨU KHOA HỌC</span></template>
               <router-link style="text-decoration: none; color: inherit;" to="/detaikhoahoc">
                 <b-dropdown-item href="/detaikhoahoc">Đề Tài Khoa Học</b-dropdown-item>
               </router-link>
@@ -155,4 +190,9 @@ input {
 li a {
     text-decoration: none;
 }
+/* .bg-dark {
+    background-color: #343a40 !important;
+} */
+
+
 </style>

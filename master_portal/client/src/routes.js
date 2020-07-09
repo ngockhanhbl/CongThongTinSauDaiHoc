@@ -28,6 +28,8 @@ import ThongBao from "./components/content/ThongBao";
 const DeTaiKhoaHoc = () => import ("./components/content/DeTaiKhoaHoc");
 const SanPhamKhoaHoc = () => import ("./components/content/SanPhamKhoaHoc");
 const GiaiThuongKhoaHoc = () => import ("./components/content/GiaiThuongKhoaHoc");
+const DSThacSi = () => import ("./components/content/DSThacSi");
+const ChuanDauRa = () => import ("./components/content/ChuanDauRa");
 
 export const routes = [
   // { path: "*", redirect:'home' },
@@ -62,6 +64,8 @@ export const routes = [
   { path: "/DeTaiKhoaHoc", name: "detaikhoahoc", component: DeTaiKhoaHoc },
   { path: "/SanPhamKhoaHoc", name: "sanphamkhoahoc", component: SanPhamKhoaHoc },
   { path: "/GiaiThuongKhoaHoc", name: "giaithuongkhoahoc", component: GiaiThuongKhoaHoc },
+  { path: "/DSThacSi", name: "dsthacsi", component: DSThacSi },
+  { path: "/ChuanDauRa", name: "chuandaura", component: ChuanDauRa },
 
 
 ];

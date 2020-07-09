@@ -36,17 +36,9 @@
       </b-col>
 
       <b-col cols="12">
-        <div class="d-flex">
-          <b-col class="border-top-custom align-self-center"></b-col>
-          <div class="text-center seperate">Hoặc</div>
-          <b-col class="border-top-custom align-self-center"></b-col>
-        </div>
-      </b-col>
-
-      <b-col cols="12">
         <b-row class="d-flex justify-content-center">
         <p class="text-request" v-b-modal.modal-1>
-            Gửi Yêu Cầu Tạo Tài Khoản</p>
+            </p>
           <b-modal id="modal-1" title="ĐĂNG KÍ" class="text-center"  ok-only>
               <router-link to="/registerpatient"><p class="my-4">Đăng Kí Dành Cho Bệnh Nhân</p></router-link>
               <router-link to="/registerhospital"><p class="my-4">Đăng Kí Dành Cho Bệnh Viện</p></router-link>
@@ -56,7 +48,7 @@
       <b-col cols="12">
         <b-row class="d-flex justify-content-center">
         <p class="text-request" v-b-modal.modal-2>
-            Quên Mật Khẩu</p>
+            </p>
           <b-modal id="modal-2" title="Quên mật khẩu" class="d-flex">
             <span class="title"> Nhập Email </span>
             <input  type="text" class="w-100 p-1" v-model="email">
