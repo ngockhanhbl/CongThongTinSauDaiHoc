@@ -18,7 +18,7 @@ const AddDoctor = () => import ("./components/content/hospital_modules/AddDoctor
 const ChangeInfo = () => import ("./components/content/hospital_modules/ChangeInfo");
 const UpdateInformationRegister = () => import ("./components/content/UpdateInformationRegister");
 const Thanks = () => import ("./components/content/Thanks");
-const SearchDrug = () => import ("./components/content/SearchDrug");
+const TraCuuDeTai = () => import ("./components/content/TraCuuDeTai");
 const DrugDetails = () => import ("./components/content/DrugDetails");
 const PatientData = () => import ("./components/content/patient_modules/PatientData");
 const DrugManagement = () => import ("./components/content/hospital_modules/DrugManagement");
@@ -30,6 +30,7 @@ const SanPhamKhoaHoc = () => import ("./components/content/SanPhamKhoaHoc");
 const GiaiThuongKhoaHoc = () => import ("./components/content/GiaiThuongKhoaHoc");
 const DSThacSi = () => import ("./components/content/DSThacSi");
 const ChuanDauRa = () => import ("./components/content/ChuanDauRa");
+const lich = () => import ("./components/content/lich");
 
 export const routes = [
   // { path: "*", redirect:'home' },
@@ -53,7 +54,7 @@ export const routes = [
   { path: "/Hospital/:id/DrugManagement", name: "DrugManagement", component: DrugManagement },
   { path: "/Admin", name: "admin", component: Admin },
   { path: "/Thanks", name: "thanks", component: Thanks },
-  { path: "/SearchDrug", name: "searchdrug", component: SearchDrug },
+  { path: "/TraCuuDeTai", name: "tracuudetai", component: TraCuuDeTai },
   { path: "/DrugDetails/:id", name: "drugdetails", component: DrugDetails },
   { path: "/UpdateInformationRegister", name: "UpdateInformationRegister", component: UpdateInformationRegister },
   { path: "/PatientData", name: "patientdata", component: PatientData },
@@ -66,6 +67,7 @@ export const routes = [
   { path: "/GiaiThuongKhoaHoc", name: "giaithuongkhoahoc", component: GiaiThuongKhoaHoc },
   { path: "/DSThacSi", name: "dsthacsi", component: DSThacSi },
   { path: "/ChuanDauRa", name: "chuandaura", component: ChuanDauRa },
+  { path: "/lich", name: "lich", component: lich },
 
 
 ];

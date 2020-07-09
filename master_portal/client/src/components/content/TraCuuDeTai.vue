@@ -9,30 +9,14 @@
             </div>
 
             <div class="d-flex flex-row align-items-center justify-content-center pt-3"> 
-                <div class="add" v-b-modal.modal-advancedSearch>+</div>
                 <input class="search-input" v-model="search" type="text" >
                 <div class="search-btn" @click="searchDrug()">&#x1F50D;</div>
             </div>
 
-            <div class="d-flex flex-row align-items-center justify-content-center mt-3">
-                <div :class="[drugsActive ? ActiveClass : '']" class="options radius_left" @click="setActice('drug')">
-                    <img :src="drugsActive ? require(`@/assets/images/drugs-active.svg`) : require(`@/assets/images/drugs.svg`) "/>
-                    <span class="name_option ">Tên Thuốc</span>
-                </div>
-                <div :class="[chemicalActive ? ActiveClass : '']" class="options" @click="setActice('chemical')">
-                    <img v-bind:src="chemicalActive ? require('@/assets/images/chemical-active.svg') : require('@/assets/images/chemical.svg')" />
-                    <span class="name_option">Hoạt Chất</span>
-                </div>
-                <div :class="[aidActive ? ActiveClass : '']" class="options radius_right" @click="setActice('aid')">
-                    <img v-bind:src="aidActive ? require('@/assets/images/aid-active.svg') : require('@/assets/images/aid.svg')" />
-                    <span class="name_option ">CSKD Dược</span>
-                </div>
-            </div>
-
         </div>
         <div class="d-flex justify-content-center  align-items-baseline pt-2 list-drugs">
-            <img src="@/assets/images/medicine.svg" alt />
-            <h4 class="ml-2">Danh Sách Thuốc</h4>
+            <img src="@/assets/images/list.svg" alt />
+            <h4 class="ml-2">Danh Sách Đề Tài, Luận Án</h4>
         </div>
 
         <b-container fluid class="py-3 bg_list_drug">
@@ -155,30 +139,18 @@ export default {
             chemicalActive:false,
             ActiveClass:'ActiveClass',
             fields: [
-                { key: 'soDangKy', label: 'Số Đăng Kí', sortable: true, sortDirection: 'desc' },
-                { key: 'tenThuoc', label: 'Tên Thuốc', sortable: true, sortDirection: 'desc' },
-                { key: 'hoatChat', label: 'Hoạt Chất', sortable: true, sortDirection: 'desc' },
-                { key: 'congTySx', label: 'Công Ty Sản Xuất', sortable: true, sortDirection: 'desc' },
-                { key: 'nuocSx', label: 'Nước Sản Xuất', sortable: true, sortDirection: 'desc' },
-                { key: 'actions', label: 'Xem' }
+                { key: 'index', label: 'STT', sortable: true, sortDirection: 'desc' },
+                { key: 'tenDeTai', label: 'TÊN ĐỀ TÀI', sortable: true, sortDirection: 'desc' },
+                { key: 'hoatChat', label: 'NGHIÊN CỨU SINH', sortable: true, sortDirection: 'desc' },
+                { key: 'congTySx', label: 'NGƯỜI HƯỚNG DẪN', sortable: true, sortDirection: 'desc' },
+                { key: 'nuocSx', label: 'NGÀY BẢO VỆ', sortable: true, sortDirection: 'desc' },
             ],
-            advancedSearch_fields: [
-                { key: this.searchBy_Name, label: 'Tên thuốc ',val:'&tenThuoc=' },
-                { key: this.searchBy_ActiveSubstance, label: 'Hoạt Chất',val:'&hoatChat=' },
-                { key: this.searchBy_Pack, label: 'Đóng Gói',val:'&dongGoi=' },
-                { key: this.searchBy_RegistrationNumber, label: 'Số Đăng Kí',val:'&soDangKy=' },
-                { key: this.searchBy_ProductionCompany, label: 'Công Ty Sản Xuất',val:'&congTySx=' },
-                { key: this.searchBy_ProductionCountry, label: 'Nước Sản Xuất',val:'&nuocSx=' },
-                { key: this.searchBy_CompanyRegistration, label: 'Công Ty Đăng Kí',val:'&congTyDk=' },
-                { key: this.searchBy_RegistrationCountry, label: 'Nước Đăng Kí',val:'&nuocDk=' },
-            ],
-            advancedSearch_keys:[this.searchBy_Name,this.searchBy_ActiveSubstance],
+            
             totalRows: 1,
             currentPage: 1,
             perPage: 10,
             pageOptions: [10, 20, 30],
             filter: null,
-            CurrentActive:'tenThuoc',
             searchBy_Name:'',
             searchBy_ActiveSubstance:'',
             searchBy_Pack:'',
@@ -194,64 +166,20 @@ export default {
         .get('https://www.drugbank.vn/services/drugbank/api/public/thuoc?page=1&size=2000&fbclid=IwAR1vamwLTdSmIx8idqXMjg77a18AZ4nZYROoLE8dTTAR0sS4EUlvt7W3lMQ')
         .then(response => (this.info = response));
         this.totalRows = this.info.data.length;
-
-        console.log(this.info.data);
     },
     methods:{
-        setActice(payload){
-            if(payload == 'drug'){
-                this.drugsActive = true;
-                this.aidActive = false;
-                this.chemicalActive = false;
-                this.CurrentActive = 'tenThuoc'
-            }else if(payload == 'chemical'){
-                this.chemicalActive = true;
-                this.drugsActive = false;
-                this.aidActive = false;
-                this.CurrentActive = 'hoatChat'
-            }else{
-                this.drugsActive = false;
-                this.aidActive = true;
-                this.chemicalActive = false;
-                this.CurrentActive = 'congTySx'
-            }
-        },
-        SeeDetailsDrug(item, index, button){
-            this.$router.push({
-                path: `/DrugDetails/${item.id}`
-            })
-        },
         async searchByAlphabet(word){
             await axios
             .get(`https://www.drugbank.vn/services/drugbank/api/public/thuoc?page=0&size=12&tenThuoc=${word}&sort=tenThuoc,asc`)
             .then(response => (this.info = response));
         },
         async searchDrug(){
-            await axios
-            .get(`https://www.drugbank.vn/services/drugbank/api/public/thuoc?page=0&size=12&${this.CurrentActive}=${this.search}&sort=tenThuoc,asc`)
-            .then(response => (this.info = response));
+            
         },
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length
             this.currentPage = 1
         },
-        resetAdvancedSearch(){
-            this.advancedSearch_fields.filter(x=> x.key = '');
-        },
-        async advancedSearch_fn(){
-            let query = 'https://www.drugbank.vn/services/drugbank/api/public/thuoc?page=-1&size=12&'; //add vo query
-            for(let i = 0;i<8;i++){
-                if(this.advancedSearch_fields[i].key){
-                    query = query.concat(this.advancedSearch_fields[i].val.concat(this.advancedSearch_fields[i].key))
-                }
-            }
-
-            query = query.concat('&sort=tenThuoc,asc');
-            await axios
-            .get(`${query}`)
-            .then(response => (this.info = response));
-            this.$root.$emit('bv::hide::modal', 'modal-advancedSearch', '#btnShow')
-        }
     }
 }
 

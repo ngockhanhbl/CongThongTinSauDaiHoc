@@ -49,11 +49,11 @@
               <router-link style="text-decoration: none; color: inherit;" to="/chuandaura">
                 <b-dropdown-item href="/chuandaura">Chuẩn Đầu Ra</b-dropdown-item>
               </router-link>
-              <router-link style="text-decoration: none; color: inherit;" to="/sanphamkhoahoc">
-                <b-dropdown-item href="/sanphamkhoahoc">Lịch Bảo Vệ Luận Án</b-dropdown-item>
+              <router-link style="text-decoration: none; color: inherit;" to="/lich">
+                <b-dropdown-item href="/lich">Lịch Bảo Vệ Luận Án</b-dropdown-item>
               </router-link>
-              <router-link style="text-decoration: none; color: inherit;" to="/giaithuongkhoahoc">
-                <b-dropdown-item href="/giaithuongkhoahoc">Tra Cứu Đề Tài Luận Án</b-dropdown-item>
+              <router-link style="text-decoration: none; color: inherit;" to="/tracuudetai">
+                <b-dropdown-item href="/tracuudetai">Tra Cứu Đề Tài Luận Án</b-dropdown-item>
               </router-link>
               <router-link style="text-decoration: none; color: inherit;" to="/dsthacsi">
                 <b-dropdown-item href="/dsthacsi">Danh Sách Tiến Sĩ Đã Được Cấp</b-dropdown-item>
@@ -67,11 +67,11 @@
               <router-link style="text-decoration: none; color: inherit;" to="/chuandaura">
                 <b-dropdown-item href="/chuandaura">Chuẩn Đầu Ra</b-dropdown-item>
               </router-link>
-              <router-link style="text-decoration: none; color: inherit;" to="/sanphamkhoahoc">
-                <b-dropdown-item href="/sanphamkhoahoc">Lịch Bảo Vệ Luận Án</b-dropdown-item>
+              <router-link style="text-decoration: none; color: inherit;" to="/lich">
+                <b-dropdown-item href="/lich">Lịch Bảo Vệ Luận Án</b-dropdown-item>
               </router-link>
-              <router-link style="text-decoration: none; color: inherit;" to="/searchdrug">
-                <b-dropdown-item href="/searchdrug">Tra Cứu Đề Tài Luận Án</b-dropdown-item>
+              <router-link style="text-decoration: none; color: inherit;" to="/tracuudetai">
+                <b-dropdown-item href="/tracuudetai">Tra Cứu Đề Tài Luận Án</b-dropdown-item>
               </router-link>
               <router-link style="text-decoration: none; color: inherit;" to="/dsthacsi">
                 <b-dropdown-item href="/dsthacsi">Danh Sách Thạc Sĩ Đã Được Cấp</b-dropdown-item>
