@@ -96,32 +96,7 @@
                     </b-col>
                     </b-row>
         </b-container>
-          <b-modal id="modal-advancedSearch" title="Tìm Kiếm Nâng Cao" button-size="sm">
-            <div class="my-2 d-flex" v-for="(item,index) in advancedSearch_fields" :key="index">
-                <p class="col-sm-5">{{item.label}}</p>
-                <span class="col-sm-7"><input type="text" v-model="item.key" class="width-100"></span>
-            </div>
-                <template v-slot:modal-footer>
-                    <div class="w-100">
-                    <b-button
-                        variant="secondary"
-                        size="sm"
-                        class="float-left"
-                        @click="resetAdvancedSearch"
-                    >
-                        &#8709;&nbsp;Đặt Lại
-                    </b-button>
-                    <b-button
-                        variant="success"
-                        size="sm"
-                        class="float-right"
-                        @click="advancedSearch_fn"
-                    >
-                        &#10148;&nbsp;Tìm Kiếm Nâng Cao
-                    </b-button>
-                    </div>
-                </template>
-        </b-modal>
+          
         </div>
 </template>
 

@@ -2,10 +2,10 @@
   <div v-if="userRole == 0 && isUserLoggedIn === 'true'" class="pt-5">
   <b-card no-body>
     <b-tabs pills card vertical >
-      <b-tab title="Quản lý bệnh viện " active><b-card-text> <app-AdminManager /></b-card-text></b-tab>
-      <b-tab title="Quản lý đăng kí"><b-card-text> <AdminManagerRegister /></b-card-text></b-tab>
+      <!-- <b-tab title="Quản lý bệnh viện " active><b-card-text> <app-AdminManager /></b-card-text></b-tab>-->
+      <b-tab title="DS đề tài, luận án"><b-card-text> <AdminManagerDeTai /></b-card-text></b-tab> 
       <b-tab title="Quản lý liên hệ"><b-card-text> <AdminSupport /></b-card-text></b-tab>
-      <b-tab title="Quản lý tuyển dụng"><b-card-text> <AdminManagerJob /></b-card-text></b-tab>
+      <b-tab title="Quản lý tuyển sinh"><b-card-text> <AdminManagerJob /></b-card-text></b-tab>
     </b-tabs>
   </b-card>
 
@@ -28,7 +28,8 @@ import { mapGetters} from "vuex";
       "app-AdminManager": AdminManager,
       AdminManagerRegister: () =>import('@/components/content/admin_modules/AdminManagerRegister.vue'),
       AdminSupport: () =>import('@/components/content/admin_modules/AdminSupport.vue'),
-      AdminManagerJob: () =>import('@/components/content/admin_modules/AdminManagerJob.vue')
+      AdminManagerJob: () =>import('@/components/content/admin_modules/AdminManagerJob.vue'),
+      AdminManagerDeTai: () =>import('@/components/content/admin_modules/AdminManagerDeTai.vue')
     },
     async created() {
       const userJSON = JSON.parse(localStorage.getItem("user"))

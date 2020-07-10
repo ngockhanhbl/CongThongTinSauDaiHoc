@@ -11,7 +11,7 @@
             </span>
             <span class="content-footer">
               <router-link to="/aboutus"><div>Giới Thiệu</div></router-link>
-              <router-link to="/jobs"><div>Tuyển Dụng</div></router-link> 
+              <router-link to="/contact"><div>Liên Hệ</div></router-link> 
                <router-link to="/policy"><div>Chính Sách</div></router-link> 
                <router-link to="/terms"><div>Điều Khoản</div></router-link> 
             </span>

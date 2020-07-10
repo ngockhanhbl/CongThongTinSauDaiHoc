@@ -6,10 +6,10 @@
             <p>
                 <strong class="title2">Quyết định ban hành chuẩn đầu ra các chuyên ngành đào tạo trình độ Tiến sĩ tại Học viện Khoa học và Công nghệ</strong>
             </p>
-            <div class="misson-content d-flex">Học viện KHCN đã ban hành số 1121/QĐ-HVKHCN về việc ban hành chuẩn đầu ra các chuyên ngành trình độ Tiến sĩ cụ thể như sau: Xem Quyết định tại đây:
+            <div class="misson-content d-flex">Học viện KHCN đã ban hành số 1121/QĐ-HVKHCN về việc ban hành chuẩn đầu ra các chuyên ngành trình độ Tiến sĩ cụ thể như sau:
             </div>
-            <div class="title3">
-                <a href="https://drive.google.com/file/d/1QatJWDcBlwcwDlOvbKhjjUZLgRUykn0t/view">https://drive.google.com/file/d/1QatJWDcBlwcwDlOvbKhjjUZLgRUykn0t/view</a>
+            <div class="title3 pt-2">Xem Quyết định tại đây:
+                <a href="https://drive.google.com/file/d/1QatJWDcBlwcwDlOvbKhjjUZLgRUykn0t/view" class="vol_color"> Xem Chi Tiết</a>
             </div>
 
 
@@ -208,5 +208,8 @@ ul li:not(first-child)hover{
 .tnmt img{
     width: calc(100vw - 30vw);
     max-width: calc(100vw - 30vw);
+}
+.vol_color{
+    color: #007CC8;
 }
 </style>

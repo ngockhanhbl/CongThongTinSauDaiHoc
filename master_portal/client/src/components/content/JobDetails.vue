@@ -17,14 +17,7 @@
                             <h3>Mô Tả Công Việc</h3>
                             <div v-html="jobdetails.description"></div>
                         </div>
-                        <div>
-                            <h3>Lợi Ích</h3>
-                            <div v-html="jobdetails.benefit"></div>
-                        </div>
-                        <div>
-                            <h3>Yêu Cầu</h3>
-                            <div v-html="jobdetails.requirement"></div>
-                        </div>
+                        
                     </div> 
                 </div>
             </div>
@@ -56,11 +49,11 @@
                 <div class="my-2 d-flex">
                     <p class="col-sm-3 title_editor">Ý Kiến</p>
                     <span class="col-sm-9">
-                        <textarea style_input  rows="5" placeholder="Nêu nhiều ví dụ cụ thể để làm hồ sơ ứng tuyển của bạn thuyết phục hơn..." v-model="comments_user_apply" class="width-100 style_input"></textarea>
+                        <textarea style_input  rows="5" placeholder="để lại ý kiến của bạn..." v-model="comments_user_apply" class="width-100 style_input"></textarea>
                     </span>
                 </div>
                 <div class="my-2 d-flex">
-                    <p class="col-sm-3 title_editor">CV</p>
+                    <p class="col-sm-3 title_editor">Hồ Sơ</p>
                     <span class="col-sm-9">
                         <b-form-file
                             v-model="file"

@@ -28,6 +28,9 @@ export default {
   SendRequestCreateJob (payload) {
     return Api().post(`SendRequestCreateJob`, payload)
   },
+  SendRequestCreateDeTai (payload) {
+    return Api().post(`SendRequestCreateDeTai`, payload)
+  },
   SendRequestUpdateJob(payload){
     return Api().put(`SendRequestUpdateJob`, payload)
   },

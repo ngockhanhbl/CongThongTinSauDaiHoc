@@ -3,32 +3,32 @@
     <div class="bg-light">
         <div class="section-jobs">
             <div class="title d-flex">
-                <strong>Tuyển Dụng</strong>         
+                <strong>TUYỂN SINH CAO HỌC</strong>         
             </div>
             <div> 
                 <div class="careers" v-if="isExistEngineeringType">
-                    <p class="icon"><img src="@/assets/images/gear.svg" /> <span class="pl-1">Engneering</span></p>
+                    <p class="icon"><img src="@/assets/images/gear.svg" /> <span class="pl-1">Khoa Công Nghệ Thông Tin</span></p>
                     <div v-for="(job,index) in jobs " :key="index"  class="lists">
-                        <div class="item d-flex justify-content-between" v-if="job.type === 'Engneering' ">
+                        <div class="item d-flex justify-content-between" v-if="job.type == 'Khoa Công Nghệ Thông Tin' ">
                             <div>
                                 <h5 class="namejob">{{job.name}}</h5>
                                 <h6 class="positionjob">{{job.location}}</h6>
                             </div>
-                        <div @click="SeeDetailsJob(job)" class="applynow"> Apply now </div>
+                        <div @click="SeeDetailsJob(job)" class="applynow"> Xem Chi Tiết </div>
                         </div>
                     </div>  
                 </div>
 
 
                 <div class="careers" v-if="isExistProductType">
-                        <p class="icon"><img src="@/assets/images/diamond.svg" /> <span class="pl-1"> Product</span></p>
+                        <p class="icon"><img src="@/assets/images/diamond.svg" /> <span class="pl-1">Khoa Hóa</span></p>
                         <div v-for="(job,index) in jobs " :key="index"  class="lists">
-                            <div class="item d-flex justify-content-between" v-if="job.type === 'Product' ">
+                            <div class="item d-flex justify-content-between" v-if="job.type == 'Khoa Hóa' ">
                                 <div>
                                     <h5 class="namejob">{{job.name}}</h5>
                                     <h6 class="positionjob">{{job.location}}</h6>
                                 </div>
-                            <div @click="SeeDetailsJob(job)" class="applynow"> Apply now </div>
+                            <div @click="SeeDetailsJob(job)" class="applynow"> Xem Chi Tiết </div>
                             </div>
                         </div>  
                 </div>
@@ -36,27 +36,27 @@
 
 
                 <div class="careers" v-if="isExistFinanceType">
-                        <p class="icon"><img src="@/assets/images/coin.svg" /> <span class="pl-1">Finance</span></p>
+                        <p class="icon"><img src="@/assets/images/coin.svg" /> <span class="pl-1">Khoa Tài Chính</span></p>
                         <div v-for="(job,index) in jobs " :key="index"  class="lists">
-                            <div class="item d-flex justify-content-between" v-if="job.type === 'Finance' ">
+                            <div class="item d-flex justify-content-between" v-if="job.type == 'Khoa Tài Chính' ">
                                 <div>
                                     <h5 class="namejob">{{job.name}}</h5>
                                     <h6 class="positionjob">{{job.location}}</h6>
                                 </div>
-                            <div @click="SeeDetailsJob(job)" class="applynow"> Apply now </div>
+                            <div @click="SeeDetailsJob(job)" class="applynow"> Xem Chi Tiết </div>
                             </div>
                         </div>  
                 </div>
 
                 <div class="careers" v-if="isExistOtherType">
-                        <p class="icon"><img src="@/assets/images/other.svg" /> <span class="pl-1"> Other</span></p>
+                        <p class="icon"><img src="@/assets/images/other.svg" /> <span class="pl-1"> Khác</span></p>
                         <div v-for="(job,index) in jobs " :key="index" class="lists">
-                            <div class="item d-flex justify-content-between" v-if="job.type === 'Other'">
+                            <div class="item d-flex justify-content-between" v-if="job.type == 'Khác'">
                                 <div>
                                     <h5 class="namejob">{{job.name}}</h5>
                                     <h6 class="positionjob">{{job.location}}</h6>
                                 </div>
-                           <div @click="SeeDetailsJob(job)" class="applynow"> Apply now </div>
+                           <div @click="SeeDetailsJob(job)" class="applynow"> Xem Chi Tiết </div>
                             </div>
                         </div>  
                 </div>
@@ -85,22 +85,22 @@ export default {
     computed: {
         isExistOtherType(){
             return this.jobs.some(function(t){
-                return t.type === 'Other'
+                return t.type == 'Khác'
             })
         },
         isExistFinanceType(){
             return this.jobs.some(function(t){
-                return t.type === 'Finance'
+                return t.type == 'Khoa Tài Chính'
             })
         },
         isExistProductType(){
             return this.jobs.some(function(t){
-                return t.type === 'Product'
+                return t.type == 'Khoa Hóa'
             })
         },
         isExistEngineeringType(){
             return this.jobs.some(function(t){
-                return t.type === 'Engneering'
+                return t.type == 'Khoa Công Nghệ Thông Tin'
             })
         },
     },

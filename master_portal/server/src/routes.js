@@ -293,9 +293,16 @@ module.exports = (app) => {
    isAuthenticated,
    AdminController.markToSupportDone)
 
+//    here
+
+   app.post(`/SendRequestCreateDeTai/`,
+   AdminController.SendRequestCreateDeTai)
+
    app.post(`/SendRequestCreateJob/`,
    isAuthenticated,
    AdminController.SendRequestCreateJob)
+
+
    
    app.put(`/SendRequestUpdateJob/`,
    isAuthenticated,

@@ -5,7 +5,7 @@
                 <div class="pl-5 pt-3">Xin Chào Admin</div>
                 <div class="pl-5 pt-3">
                     <b-button variant="success" v-b-modal.modal-job class="text-white">
-                      Tạo Tin Tuyển Dụng Mới
+                      Tạo Tin Tuyển Sinh Mới
                     </b-button>  
                 </div>
               </div>
@@ -45,11 +45,11 @@
                       >
                         <template slot="status" slot-scope="row" >
                           <b-button size='sm' variant="success text-white" v-if="row.item.status == 0">
-                            Đang tuyển
+                            Đang hoạt động
                           </b-button>
                           <b-button size='sm' v-else>
                             Tạm Dừng
-                          </b-button> 
+                          </b-button>
                         </template>
 
                         <template slot="updatedAt" slot-scope="row" >
@@ -89,22 +89,22 @@
             </div>  
       </div>
 
-      <b-modal id="modal-job" size='lg' title="Tạo Đăng Thông Tin Tuyển Dụng">
+      <b-modal id="modal-job" size='lg' title="Tạo Đăng Thông Tin tuyển sinh">
           <div class="my-2 d-flex">
-            <p class="col-sm-3 title_editor">Loại Công Việc</p>            
+            <p class="col-sm-3 title_editor">Khoa</p>            
             <span class="col-sm-9">
               <select v-model="selected">
-                <option disabled value="">Chọn loại công việc</option>
-                <option>Product</option>
-                <option>Engneering</option>
-                <option>Finance</option>
-                <option>Other</option>
+                <option disabled value="">Chọn khoa</option>
+                <option>Khoa Hóa</option>
+                <option>Khoa Công Nghệ Thông Tin</option>
+                <option>Khoa Tài Chính</option>
+                <option>Khác</option>
               </select>
             </span>
           </div>
 
           <div class="my-2 d-flex">
-            <p class="col-sm-3 title_editor">Tên Công Việc</p>
+            <p class="col-sm-3 title_editor">Tiêu Đề</p>
             <span class="col-sm-9"><input type="text" v-model="name" class="width-100 style_input"></span>
           </div>
 
@@ -121,22 +121,6 @@
                   <vue-editor v-model="description"></vue-editor>
               </span>
           </div>
-
-
-          <div class="my-2 d-flex">
-            <p class="col-sm-3 title_editor">Yêu Cầu</p>
-            <span class="col-sm-9">
-              <vue-editor v-model="requirement"></vue-editor>
-            </span>
-          </div>
-
-          <div class="my-2 d-flex">
-            <p class="col-sm-3 title_editor">Lợi Ích</p>
-            <span class="col-sm-9">
-              <vue-editor v-model="benefit"></vue-editor>
-            </span>
-          </div>
-
 
         <template v-slot:modal-footer>
             <div class="w-100">
@@ -163,23 +147,23 @@
 
 
       <!-- DETAILS -->
-      <b-modal id="modal-jobdetails" size='lg' title="Thông Tin Tuyển Dụng Chi Tiết">
+      <b-modal id="modal-jobdetails" size='lg' title="Thông Tin tuyển sinh Chi Tiết">
           <div class="my-2 d-flex">
 
-            <p class="col-sm-3 title_editor">Loại Công Việc</p>
+            <p class="col-sm-3 title_editor">Khoa</p>
             <span class="col-sm-9 d-flex" >
               <select v-model="infoModal.type">
                 <option value="" hidden disabled>{{infoModal.type}}</option>
-                <option value="Product">Product</option>
-                <option value="Engneering">Engneering</option>
-                <option value="Finance">Finance</option>
-                <option value="Other">Other</option>
+                <option value="Khoa Hóa">Khoa Hóa</option>
+                <option value="Khoa Công Nghệ Thông Tin">Khoa Công Nghệ Thông Tin</option>
+                <option value="Khoa Tài Chính">Khoa Tài Chính</option>
+                <option value="Khác">Khác</option>
               </select>
             </span>
           </div>
 
           <div class="my-2 d-flex">
-            <p class="col-sm-3 title_editor">Tên Công Việc</p>
+            <p class="col-sm-3 title_editor">Tiêu Đề</p>
 
             <span class="col-sm-9">
               <input type="text" v-model="infoModal.name" class="width-100 style_input">
@@ -201,20 +185,6 @@
               </span>
           </div>
 
-
-          <div class="my-2 d-flex">
-            <p class="col-sm-3 title_editor">Yêu Cầu</p>
-            <span class="col-sm-9">
-              <vue-editor v-model="infoModal.requirement"></vue-editor>
-            </span>
-          </div>
-
-          <div class="my-2 d-flex">
-            <p class="col-sm-3 title_editor">Lợi Ích</p>
-            <span class="col-sm-9">
-              <vue-editor v-model="infoModal.benefit"></vue-editor>
-            </span>
-          </div>
 
 
         <template v-slot:modal-footer>
@@ -268,8 +238,8 @@ import {db, storage} from '../../firebaseInit'
       return {
         fields: [
           { key: 'id', label: 'ID', sortable: true, sortDirection: 'desc' },
-          { key: 'type', label: 'Loại Công Việc'},
-          { key: 'name', label: 'Tên Công Việc', sortable: true, class: 'text-center'},
+          { key: 'type', label: 'Khoa'},
+          { key: 'name', label: 'Tiêu Đề', sortable: true, class: 'text-center'},
           { key: 'status', label: 'Trạng Thái',class:'text-center'},
           { key: 'updatedAt', label: 'Thời Gian'},//,formatter: value => value.moment().format('MMMM Do YYYY, h:mm:ss a')
           { key: 'action_details', label: 'Chi Tiết', class: 'action d-flex ' },
@@ -294,8 +264,6 @@ import {db, storage} from '../../firebaseInit'
         cv:null,
         infoModal: {
           description: '',
-          benefit: '',
-          requirement:'',
           name:'',
           type:'',
           location:''
@@ -307,14 +275,10 @@ import {db, storage} from '../../firebaseInit'
         name:'',
         location:'',
         description:'',
-        benefit:'',
-        requirement:'',
         selected_modify:'',
         name_modify:'',
         location_modify:'',
         description_modify:'',
-        benefit_modify:'',
-        requirement_modify:'',
         currentIndex:''
       }
     },
@@ -327,53 +291,39 @@ import {db, storage} from '../../firebaseInit'
     methods: {
       async SendRequestUpdateJob(){
         if(!this.infoModal.type){
-          this.$toasted.show(`Vui lòng chọn loại công việc !!`, { 
+          this.$toasted.show(`Vui lòng chọn khoa !!`, { 
               theme: "toasted-primary", 
               position: "bottom-right", 
               duration : 2000
           });
         }else if(!this.infoModal.name){
-          this.$toasted.show(`Vui lòng không bỏ trống tên công việc !!`, { 
+          this.$toasted.show(`Vui lòng không bỏ trống tiêu đề !!`, { 
               theme: "toasted-primary", 
               position: "bottom-right", 
               duration : 2000
           });
         }else if(!this.infoModal.location){
-          this.$toasted.show(`Vui lòng không bỏ trống vị trí làm việc !!`, { 
+          this.$toasted.show(`Vui lòng không bỏ trống vị trí  !!`, { 
               theme: "toasted-primary", 
               position: "bottom-right", 
               duration : 2000
           });
         }else if(!this.infoModal.description){
-          this.$toasted.show(`Vui lòng không bỏ trống mô tả công việc !!`, { 
-              theme: "toasted-primary", 
-              position: "bottom-right", 
-              duration : 2000
-          });
-        }else if(!this.infoModal.benefit){
-          this.$toasted.show(`Vui lòng không bỏ trống quyền lợi!!`, { 
+          this.$toasted.show(`Vui lòng không bỏ trống mô tả tin tuyển sinh !!`, { 
               theme: "toasted-primary", 
               position: "bottom-right", 
               duration : 2000
           });
         }
-        else if(!this.infoModal.requirement){
-          this.$toasted.show(`Vui lòng không bỏ trống yêu cầu!!`, { 
-              theme: "toasted-primary", 
-              position: "bottom-right", 
-              duration : 2000
-          });
-        }else{
+        else{
           await AdminService.SendRequestUpdateJob({
             id:this.infoModal.id,
             type:this.infoModal.type,
             name:this.infoModal.name,
             location:this.infoModal.location,
             description:this.infoModal.description,
-            benefit:this.infoModal.benefit,
-            requirement:this.infoModal.requirement
           })
-            this.$toasted.show(`Đã cập nhật tin tuyển dụng thành công !!`, { 
+            this.$toasted.show(`Đã cập nhật tin tuyển sinh thành công !!`, { 
               theme: "bubble", 
               position: "bottom-right", 
               duration : 3500
@@ -385,8 +335,6 @@ import {db, storage} from '../../firebaseInit'
 
           // this.jobdetails.filter(x=>x.IdJob == this.infoModal.id).then(function(record){
           //   record.description = this.infoModal.description;
-          //   record.benefit = this.infoModal.benefit;
-          //   record.requirement = this.infoModal.requirement;
           // })
         
 
@@ -395,53 +343,39 @@ import {db, storage} from '../../firebaseInit'
       },
       async SendRequestCreateJob(){
         if(!this.selected){
-          this.$toasted.show(`Vui lòng chọn loại công việc !!`, { 
+          this.$toasted.show(`Vui lòng chọn khoa !!`, { 
               theme: "toasted-primary", 
               position: "bottom-right", 
               duration : 2000
           });
         }else if(!this.name){
-          this.$toasted.show(`Vui lòng không bỏ trống tên công việc !!`, { 
+          this.$toasted.show(`Vui lòng không bỏ trống tên tin tuyển sinh !!`, { 
               theme: "toasted-primary", 
               position: "bottom-right", 
               duration : 2000
           });
         }else if(!this.location){
-          this.$toasted.show(`Vui lòng không bỏ trống vị trí làm việc !!`, { 
+          this.$toasted.show(`Vui lòng không bỏ trống vị trí  !!`, { 
               theme: "toasted-primary", 
               position: "bottom-right", 
               duration : 2000
           });
         }else if(!this.description){
-          this.$toasted.show(`Vui lòng không bỏ trống mô tả công việc !!`, { 
-              theme: "toasted-primary", 
-              position: "bottom-right", 
-              duration : 2000
-          });
-        }else if(!this.benefit){
-          this.$toasted.show(`Vui lòng không bỏ trống quyền lợi!!`, { 
+          this.$toasted.show(`Vui lòng không bỏ trống mô tả tin tuyển sinh !!`, { 
               theme: "toasted-primary", 
               position: "bottom-right", 
               duration : 2000
           });
         }
-        else if(!this.requirement){
-          this.$toasted.show(`Vui lòng không bỏ trống yêu cầu!!`, { 
-              theme: "toasted-primary", 
-              position: "bottom-right", 
-              duration : 2000
-          });
-        }else{
+        else{
           const response = await AdminService.SendRequestCreateJob({
             type:this.selected,
             name:this.name,
             location:this.location,
             description:this.description,
-            benefit:this.benefit,
-            requirement:this.requirement
           })
 
-            this.$toasted.show(`Đã thêm tin tuyển dụng thành công !!`, { 
+            this.$toasted.show(`Đã thêm tin tuyển sinh thành công !!`, { 
               theme: "bubble", 
               position: "bottom-right", 
               duration : 3500
@@ -458,7 +392,7 @@ import {db, storage} from '../../firebaseInit'
             id:item.id
           })
           if(response.status === 200){
-            this.$toasted.show(`đã xóa tin tuyển dụng thành công !!`, { 
+            this.$toasted.show(`đã xóa tin tuyển sinh thành công !!`, { 
                 theme: "bubble", 
                 position: "bottom-right", 
                 duration : 2500
@@ -532,8 +466,6 @@ import {db, storage} from '../../firebaseInit'
         this.currentIndex = index
         this.infoModal.id =  item.id;
         this.infoModal.description = temp[0].description;
-        this.infoModal.benefit = temp[0].benefit;
-        this.infoModal.requirement = temp[0].requirement;
         this.infoModal.name = item.name;
         this.infoModal.type = item.type;
         this.infoModal.location = item.location;
@@ -551,8 +483,6 @@ import {db, storage} from '../../firebaseInit'
         this.name = '';
         this.location = '';
         this.description = '';
-        this.benefit = '';
-        this.requirement = '';
         this.$root.$emit('bv::hide::modal', 'modal-job', '#btnShow')
       },
       resetModal(){

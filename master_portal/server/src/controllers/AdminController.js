@@ -7,6 +7,9 @@ const {Job} = require('../models')
 const {JobDetails} = require('../models')
 const {JobCV} = require('../models')
 
+const {DeTai} = require('../models')
+
+
 module.exports = {
   async updateNameHospital (req, res) {
     if(req.user.roles == 0){
@@ -343,11 +346,32 @@ module.exports = {
       })
     }
   },
+  async SendRequestCreateDeTai (req, res) {
+    var idjob;
+    try {
+      const {tenDeTai,nghienCuuSinh,ngayBaoVe} = req.body;
+      await DeTai.create(
+        {
+          tenDeTai:tenDeTai,
+          nghienCuuSinh:nghienCuuSinh,
+          ngayBaoVe:ngayBaoVe
+      }).then(function (record) {
+        res.status(200).send({
+          message:'thêm đề tài thành công',
+          payload:idjob
+        })
+      });
+    } catch (err) {
+      res.status(500).send({
+        error: 'có lỗi xãy ra trong quá trình cập nhập dữ liệu'
+      })
+    }
+  },
   async SendRequestCreateJob (req, res) {
     var idjob;
     if(req.user.roles == 0){
-      const {type,name,location,description,benefit,requirement} = req.body;
-      if(!type || !name || !location || !description || !benefit || !requirement){
+      const {type,name,location,description} = req.body;
+      if(!type || !name || !location || !description){
         res.status(500).send({
           error: 'Filed can not empty!!!'
         })
@@ -363,9 +387,9 @@ module.exports = {
               idjob = record.id;
               JobDetails.create({
                 IdJob:record.id,
-                description:description,
-                benefit:benefit,
-                requirement:requirement
+                description:description
+                
+              
               })
           }).then(function (record) {
             res.status(200).send({
@@ -387,8 +411,8 @@ module.exports = {
   },
   async SendRequestUpdateJob (req, res) {
     if(req.user.roles == 0){
-      const {id,type,name,location,description,benefit,requirement} = req.body;
-      if(!type || !name || !location || !description || !benefit || !requirement){
+      const {id,type,name,location,description} = req.body;
+      if(!type || !name || !location || !description){
         res.status(500).send({
           error: 'Filed can not empty!!!'
         })
@@ -406,8 +430,8 @@ module.exports = {
             JobDetails.update({
               IdJob:id,
               description:description,
-              benefit:benefit,
-              requirement:requirement
+          
+             
             },
             {where:{IdJob:id}})
           }).then(function (record){
