@@ -45,7 +45,7 @@
                       >
                         <template slot="status" slot-scope="row" >
                           <b-button size='sm' variant="success text-white" v-if="row.item.status == 0">
-                            Đang hoạt động
+                            Hoạt động
                           </b-button>
                           <b-button size='sm' v-else>
                             Tạm Dừng

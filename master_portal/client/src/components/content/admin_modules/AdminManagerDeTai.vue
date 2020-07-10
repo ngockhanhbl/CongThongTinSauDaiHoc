@@ -4,7 +4,7 @@
               <div class="d-flex justify-content-between pr-5 pt-4 ">
                 <div class="pl-5 pt-3">Xin Chào Admin</div>
                 <div class="pl-5 pt-3">
-                    <b-button variant="success" v-b-modal.modal-job class="text-white">
+                    <b-button variant="success" v-b-modal.modal-detai class="text-white">
                       Thêm Đề Tài, Luận Án
                     </b-button>
                 </div>
@@ -36,27 +36,14 @@
                         striped
                         hover
                         outlined
-                        :items="jobs"
+                        :items="detai"
                         :fields="fields"
                         :current-page="currentPage"
                         :per-page="perPage"
                         :filter="filter"
                         @filtered="onFiltered"
                       >
-                        <template slot="status" slot-scope="row" >
-                          <b-button size='sm' variant="success text-white" v-if="row.item.status == 0">
-                            Đang hoạt động
-                          </b-button>
-                          <b-button size='sm' v-else>
-                            Tạm Dừng
-                          </b-button>
-                        </template>
 
-                        <template slot="updatedAt" slot-scope="row" >
-                         {{row.item.updatedAt }}
-                        </template>
-                        
-                        
                         <template slot="actions" slot-scope="row" >
                           <b-button size="sm" @click="DeTaiDetails(row.item, row.index, $event.target)">
                             <img src="@/assets/images/contract.svg" /> 
@@ -82,7 +69,7 @@
             </div>  
       </div>
 
-      <b-modal id="modal-job" size='lg' title="Tạo Đăng Thông Tin tuyển sinh">
+      <b-modal id="modal-detai" size='lg' title="Tạo Thông Tin đề tài">
 
           <div class="my-2 d-flex">
             <p class="col-sm-3 title_editor">Tên Đề Tài</p>
@@ -94,6 +81,14 @@
             <p class="col-sm-3 title_editor">Nghiên Cứu Sinh</p>
             <span class="col-sm-9"><input type="text" v-model="nghienCuuSinh" class="width-100 style_input"></span>
           </div>
+
+          <div class="my-2 d-flex">
+            <p class="col-sm-3 title_editor">Người Hướng Dẫn</p>
+            <span class="col-sm-9"><input type="text" v-model="nguoiHuongDan" class="width-100 style_input"></span>
+          </div>
+
+
+          
 
 
           <div class="my-2 d-flex">
@@ -126,7 +121,7 @@
 
 
       <!-- DETAILS -->
-      <b-modal id="modal-jobdetails" size='lg' title="Thông Tin tuyển sinh Chi Tiết">
+      <b-modal id="modal-detaidetails" size='lg' title="Thông Tin đề tài Chi Tiết">
           <div class="my-2 d-flex">
             <p class="col-sm-3 title_editor">Tên Đề Tài</p>
 
@@ -139,6 +134,12 @@
             <p class="col-sm-3 title_editor">Nghiên Cứu Sinh</p>
             <span class="col-sm-9"><input type="text" v-model="infoModal.nghienCuuSinh" class="width-100 style_input"></span>
           </div>
+
+          <div class="my-2 d-flex">
+            <p class="col-sm-3 title_editor">Người Hướng Dẫn</p>
+            <span class="col-sm-9"><input type="text" v-model="infoModal.nguoiHuongDan" class="width-100 style_input"></span>
+          </div>
+
 
 
           <div class="my-2 d-flex">
@@ -157,37 +158,23 @@
                 Đóng
             </b-button>
             <b-button
+                ref="btnShow"
                 variant="warning"
                 size="sm"
                 class="float-right SendReqCreateJob text-white"
                 @click="SendRequestUpdateDeTai"
             >
-                <img src="@/assets/images/send.svg" /> Gửi Yêu Cầu Tạo Tin
+                <img src="@/assets/images/send.svg" /> Cập Nhập Đề Tài
             </b-button>
             </div>
         </template>
       </b-modal>
-      <!-- CV -->
-      <b-modal id="modal-jobcv" size='xl' :title="modalCV.tenDeTai">
-        <template>
-          <div>
-            <b-table striped hover :fields='fields_cv' :items="cv">
-              <template slot="stt" slot-scope="row">
-                 {{row.index+1}}
-              </template>
-              <template slot="updatedAt" slot-scope="row">
-                  <a target="_blank" class="ellipsis" rel="error" :href="row.item.updatedAt">{{row.item.updatedAt}}</a>
-              </template>
-            </b-table>
-          </div>
-        </template>  
-      </b-modal>
+
     </div>
 </template>
 
 <script>
 import AdminService from '@/services/AdminService';
-import { VueEditor } from "vue2-editor";
 import moment from 'moment';
 import firebase from 'firebase';
 import {db, storage} from '../../firebaseInit'
@@ -199,7 +186,8 @@ import {db, storage} from '../../firebaseInit'
           { key: 'id', label: 'ID', sortable: true, sortDirection: 'desc' },
           { key: 'tenDeTai', label: 'Tên Đề Tài'},
           { key: 'nghienCuuSinh', label: 'Nghiên Cứu Sinh', sortable: true, class: 'text-center'},
-          { key: 'ngayBaoVe', label: 'Ngày Bảo Vệ'},
+          { key: 'nguoiHuongDan', label: 'Người Hướng Dẫn', sortable: true, class: 'text-center'},
+          { key: 'ngayBaoVe', label: 'Ngày Bảo Vệ',formatter: value => moment(value).locale('vi_VN').format('LLLL')},
           { key: 'actions', label: 'Hành động', class: 'action d-flex justify-content-center' },
         ],
         fields_cv: [
@@ -209,35 +197,35 @@ import {db, storage} from '../../firebaseInit'
           { key: 'comments', label: 'Lời Nhắn'},
           { key: 'email', label: 'Email'},
           { key: 'updatedAt', label: 'File CV'}, //.format('MMMM Do YYYY, h:mm:ss a');
-          { key: 'createdAt', label: 'Thời Gian',formatter: value => moment(value).format('L')},
+          { key: 'createdAt', label: 'Thời Gian'},
         ],
         totalRows: 1,
         currentPage: 1,
         perPage: 5,
         pageOptions: [5, 10, 15],
         filter: null,
-        jobs:null,
+        detai:null,
         jobdetails:null,
         cv:null,
         infoModal: {
           ngayBaoVe: '',
           tenDeTai:'',
-          nghienCuuSinh:''
+          nghienCuuSinh:'',
+          nguoiHuongDan:''
         },
         modalCV:{
           tenDeTai:''
         },
         tenDeTai:'',
         nghienCuuSinh:'',
+        nguoiHuongDan:'',
         ngayBaoVe:'',
         currentIndex:''
       }
     },
     async mounted() {
-      this.jobs = (await AdminService.getAllJobs()).data
-      this.totalRows = this.jobs.length
-      this.jobdetails = (await AdminService.getAllJobDetails()).data
-
+      this.detai = (await AdminService.getAllDeTai()).data
+      this.totalRows = this.detai.length
     },
     methods: {
       async SendRequestUpdateDeTai(){
@@ -259,16 +247,19 @@ import {db, storage} from '../../firebaseInit'
             id:this.infoModal.id,
             tenDeTai:this.infoModal.tenDeTai,
             nghienCuuSinh:this.infoModal.nghienCuuSinh,
+            nguoiHuongDan:this.infoModal.nguoiHuongDan,
             ngayBaoVe:this.infoModal.ngayBaoVe,
           })
-            this.$toasted.show(`Đã cập nhật tin tuyển sinh thành công !!`, { 
+            this.$toasted.show(`Đã cập nhật tin đề tài thành công !!`, { 
               theme: "bubble", 
               position: "bottom-right", 
               duration : 3500
           });
-          this.jobs[this.currentIndex].tenDeTai = this.infoModal.tenDeTai;
-          this.jobs[this.currentIndex].nghienCuuSinh = this.infoModal.nghienCuuSinh;
-          this.jobs[this.currentIndex].updateddAt = Date.now();
+
+          this.detai[this.currentIndex].tenDeTai = this.infoModal.tenDeTai;
+          this.detai[this.currentIndex].nghienCuuSinh = this.infoModal.nghienCuuSinh;
+          this.detai[this.currentIndex].nguoiHuongDan = this.infoModal.nguoiHuongDan;
+          this.detai[this.currentIndex].ngayBaoVe = this.infoModal.ngayBaoVe;
 
           // this.jobdetails.filter(x=>x.IdJob == this.infoModal.id).then(function(record){
           //   record.ngayBaoVe = this.infoModal.ngayBaoVe;
@@ -277,6 +268,18 @@ import {db, storage} from '../../firebaseInit'
 
           this.resetModal()
         }
+      },
+      DeTaiDetails(item, index, button){
+        this.infoModal.id =  item.id;
+        this.currentIndex = index
+        this.infoModal.tenDeTai = item.tenDeTai;
+        this.infoModal.nghienCuuSinh = item.nghienCuuSinh;
+        this.infoModal.nguoiHuongDan = item.nguoiHuongDan;
+        this.infoModal.ngayBaoVe = item.ngayBaoVe;
+        this.$root.$emit('bv::show::modal', 'modal-detaidetails', '#btnShow')
+      },
+      resetModal(){
+        this.$root.$emit('bv::hide::modal', 'modal-detaidetails', '#btnShow')
       },
       async SendRequestCreateDeTai(){
         if(!this.tenDeTai){
@@ -296,6 +299,7 @@ import {db, storage} from '../../firebaseInit'
           const response = await AdminService.SendRequestCreateDeTai({
             tenDeTai:this.tenDeTai,
             nghienCuuSinh:this.nghienCuuSinh,
+            nguoiHuongDan:this.nguoiHuongDan,
             ngayBaoVe:this.ngayBaoVe,
           })
 
@@ -304,25 +308,23 @@ import {db, storage} from '../../firebaseInit'
               position: "bottom-right", 
               duration : 3500
           });
-          this.jobs = (await AdminService.getAllJobs()).data
-          this.jobdetails = (await AdminService.getAllJobDetails()).data
+          this.detai = (await AdminService.getAllDeTai()).data
           this.resetForm()
         }
       },
       async DeleteDeTai(item,index,button){
-        console.log(item.id)
         try{
           const response = await AdminService.DeleteDeTai({
             id:item.id
           })
           if(response.status === 200){
-            this.$toasted.show(`đã xóa tin tuyển sinh thành công !!`, { 
+            this.$toasted.show(`đã xóa đề tài thành công !!`, { 
                 theme: "bubble", 
                 position: "bottom-right", 
                 duration : 2500
             });
             if (~index)
-              this.jobs.splice(index, 1)
+              this.detai.splice(index, 1)
           }
         }catch(err){
           this.$toasted.show(`${err}`, { 
@@ -333,15 +335,7 @@ import {db, storage} from '../../firebaseInit'
         }
       },
       
-      DeTaiDetails(item,index,button){
-        const temp = this.jobdetails.filter(x=> x.IdJob == item.id);
-        this.currentIndex = index
-        this.infoModal.id =  item.id;
-        this.infoModal.ngayBaoVe = temp[0].ngayBaoVe;
-        this.infoModal.tenDeTai = item.tenDeTai;
-        this.infoModal.nghienCuuSinh = item.nghienCuuSinh;
-        this.$root.$emit('bv::show::modal', 'modal-jobdetails', '#btnShow')
-      },
+ 
       onFiltered(filteredItems) {
         this.totalRows = filteredItems.length
         this.currentPage = 1
@@ -352,19 +346,16 @@ import {db, storage} from '../../firebaseInit'
       resetForm(){
         this.tenDeTai = '';
         this.nghienCuuSinh = '';
+        this.nguoiHuongDan = '';
         this.ngayBaoVe = '';
-        this.$root.$emit('bv::hide::modal', 'modal-job', '#btnShow')
+        this.$root.$emit('bv::hide::modal', 'modal-detai', '#btnShow')
       },
-      resetModal(){
-        this.$root.$emit('bv::hide::modal', 'modal-jobdetails', '#btnShow')
-      }
+ 
     },
-    components: {
-        VueEditor
-    },
+    
     filters: {
       moment: function (date) {
-        return moment(date).format('L');
+        return moment(date).locale('de').format('LLLL');
       }
     },
   }

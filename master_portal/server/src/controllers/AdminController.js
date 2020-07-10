@@ -269,6 +269,18 @@ module.exports = {
         })
       }
   },
+  async getAllDeTai (req, res) {
+    try {
+      const detai = await DeTai.findAll()
+      res.status(200).send(
+        detai
+      )
+    } catch (err) {
+      res.status(500).send({
+        error: 'có lỗi xãy ra trong quá trình lấy dữ liệu'+err
+      })
+    }
+},
   async getAllJobDetails (req, res) {
       try {
         const jobdetails = await JobDetails.findAll()
@@ -349,11 +361,12 @@ module.exports = {
   async SendRequestCreateDeTai (req, res) {
     var idjob;
     try {
-      const {tenDeTai,nghienCuuSinh,ngayBaoVe} = req.body;
+      const {tenDeTai,nghienCuuSinh,nguoiHuongDan,ngayBaoVe} = req.body;
       await DeTai.create(
         {
           tenDeTai:tenDeTai,
           nghienCuuSinh:nghienCuuSinh,
+          nguoiHuongDan:nguoiHuongDan,
           ngayBaoVe:ngayBaoVe
       }).then(function (record) {
         res.status(200).send({
@@ -362,6 +375,29 @@ module.exports = {
         })
       });
     } catch (err) {
+      res.status(500).send({
+        error: 'có lỗi xãy ra trong quá trình cập nhập dữ liệu'
+      })
+    }
+  },
+  async SendRequestUpdateDeTai (req, res) {
+    try {
+      const {id,tenDeTai,nghienCuuSinh,nguoiHuongDan,ngayBaoVe} = req.body;
+      await DeTai.update({
+        id:id,
+        tenDeTai:tenDeTai,
+        nghienCuuSinh:nghienCuuSinh,
+        nguoiHuongDan:nguoiHuongDan,
+        ngayBaoVe:ngayBaoVe,
+      },
+      {
+        where:{id:id}
+      }).then(function (record){
+        res.status(200).send({
+          message:'cập nhật thành công',
+        })
+      })
+    }catch (err) {
       res.status(500).send({
         error: 'có lỗi xãy ra trong quá trình cập nhập dữ liệu'
       })
@@ -450,6 +486,22 @@ module.exports = {
         error: 'bạn không có quyền truy cập vào tài nguyên này !!!'
       })
     }
+  },
+  async DeleteDeTai (req, res) {
+      try {
+        DeTai.destroy({
+          where: {
+            id:req.params.id
+          }
+        })
+        res.status(200).send({
+          message:'xóa tin tuyển dụng thành công',
+        })
+      }catch (err) {
+        res.status(500).send({
+          error: 'có lỗi xãy ra trong quá trình cập nhập dữ liệu'
+        })
+      }
   },
   async SwitchJobStatus (req, res) {
     if(req.user.roles == 0){

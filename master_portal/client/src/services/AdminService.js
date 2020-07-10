@@ -28,6 +28,9 @@ export default {
   SendRequestCreateJob (payload) {
     return Api().post(`SendRequestCreateJob`, payload)
   },
+  SendRequestUpdateDeTai(payload){
+    return Api().put(`SendRequestUpdateDeTai`, payload)
+  },
   SendRequestCreateDeTai (payload) {
     return Api().post(`SendRequestCreateDeTai`, payload)
   },
@@ -36,6 +39,9 @@ export default {
   },
   getAllJobs () {
     return Api().get(`getAllJobs`)
+  },
+  getAllDeTai () {
+    return Api().get(`getAllDeTai`)
   },
   getJobCVbyID(payload) {
     return Api().get(`getJobCVbyID/${payload.id}`)
@@ -51,6 +57,9 @@ export default {
   },
   DeleteJob (payload) {
     return Api().delete(`DeleteJob/${payload.id}`)
+  },
+  DeleteDeTai (payload) {
+    return Api().delete(`DeleteDeTai/${payload.id}`)
   },
 }
 

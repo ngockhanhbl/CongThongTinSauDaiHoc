@@ -9,8 +9,9 @@ module.exports = (sequelize, DataTypes) => {
             type:DataTypes.TEXT,
             allowNull: false
         },
-        nghienCuuSinh:{
+        nguoiHuongDan:{
             type:DataTypes.TEXT,
+            defaultValue: ''
         },
         ngayBaoVe:{
             type:DataTypes.DATE,

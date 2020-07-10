@@ -308,6 +308,9 @@ module.exports = (app) => {
    isAuthenticated,
    AdminController.SendRequestUpdateJob)
 
+   app.put(`/SendRequestUpdateDeTai/`,
+   AdminController.SendRequestUpdateDeTai)
+
    app.put(`/SwitchJobStatus/:id`,
    isAuthenticated,
    AdminController.SwitchJobStatus)
@@ -315,9 +318,15 @@ module.exports = (app) => {
    app.delete(`/DeleteJob/:id`,
    isAuthenticated,
    AdminController.DeleteJob)
+
+   app.delete(`/DeleteDeTai/:id`,
+   AdminController.DeleteDeTai)
    
    app.get(`/getAllJobs/`,
    AdminController.getAllJobs)
+
+   app.get(`/getAllDeTai/`,
+   AdminController.getAllDeTai)
 
    app.get(`/getJobById/:id`,
    AdminController.getJobById)

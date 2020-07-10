@@ -70,7 +70,7 @@
             stacked="md"
             bordered
             striped
-            :items="info.data"
+            :items="info"
             :fields="fields"
             :current-page="currentPage"
             :per-page="perPage"
@@ -103,22 +103,20 @@
 
 <script>
 import axios from 'axios'
+import AdminService from '@/services/AdminService';
+
 export default {
     data () {
         return {
             alphabet:['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
             info:'',
             search:'',
-            drugsActive:true,
-            aidActive:false,
-            chemicalActive:false,
-            ActiveClass:'ActiveClass',
             fields: [
                 { key: 'index', label: 'STT', sortable: true, sortDirection: 'desc' },
                 { key: 'tenDeTai', label: 'TÊN ĐỀ TÀI', sortable: true, sortDirection: 'desc' },
-                { key: 'hoatChat', label: 'NGHIÊN CỨU SINH', sortable: true, sortDirection: 'desc' },
-                { key: 'congTySx', label: 'NGƯỜI HƯỚNG DẪN', sortable: true, sortDirection: 'desc' },
-                { key: 'nuocSx', label: 'NGÀY BẢO VỆ', sortable: true, sortDirection: 'desc' },
+                { key: 'nghienCuuSinh', label: 'NGHIÊN CỨU SINH', sortable: true, sortDirection: 'desc' },
+                { key: 'nguoiHuongDan', label: 'NGƯỜI HƯỚNG DẪN', sortable: true, sortDirection: 'desc' },
+                { key: 'ngayBaoVe', label: 'NGÀY BẢO VỆ', sortable: true, sortDirection: 'desc' },
             ],
             
             totalRows: 1,
@@ -126,27 +124,16 @@ export default {
             perPage: 10,
             pageOptions: [10, 20, 30],
             filter: null,
-            searchBy_Name:'',
-            searchBy_ActiveSubstance:'',
-            searchBy_Pack:'',
-            searchBy_RegistrationNumber:'',
-            searchBy_ProductionCompany:'',
-            searchBy_ProductionCountry:'',
-            searchBy_CompanyRegistration:'',
-            searchBy_RegistrationCountry:'',
         }
     },
     async mounted(){
-        await axios
-        .get('https://www.drugbank.vn/services/drugbank/api/public/thuoc?page=1&size=2000&fbclid=IwAR1vamwLTdSmIx8idqXMjg77a18AZ4nZYROoLE8dTTAR0sS4EUlvt7W3lMQ')
-        .then(response => (this.info = response));
-        this.totalRows = this.info.data.length;
+        this.info = (await AdminService.getAllDeTai()).data
+        this.totalRows = this.info.length
+        
     },
     methods:{
         async searchByAlphabet(word){
-            await axios
-            .get(`https://www.drugbank.vn/services/drugbank/api/public/thuoc?page=0&size=12&tenThuoc=${word}&sort=tenThuoc,asc`)
-            .then(response => (this.info = response));
+            console.log(word)
         },
         async searchDrug(){
             
