@@ -302,6 +302,14 @@ module.exports = (app) => {
    isAuthenticated,
    AdminController.SendRequestCreateJob)
 
+   app.post(`/SendRequestCreateTinTuc/`,
+   AdminController.SendRequestCreateTinTuc)
+   
+   app.get('/getAllTinTuc',
+   AdminController.getAllTinTuc)
+
+   app.put(`/SendRequestUpdateTinTuc/`,
+   AdminController.SendRequestUpdateTinTuc)
 
    
    app.put(`/SendRequestUpdateJob/`,

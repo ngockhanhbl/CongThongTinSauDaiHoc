@@ -78,6 +78,10 @@
             @filtered="onFiltered"
             >
 
+            <template slot="index" slot-scope="row" class="d-flex justify-content-start">
+                {{row.index + 1}}
+            </template>
+
             <template slot="actions" slot-scope="row" class="d-flex justify-content-start">
                 <b-button size="sm" @click="SeeDetailsDrug(row.item, row.index, $event.target)" class="btn-success text-white ">
                     Xem
@@ -104,19 +108,20 @@
 <script>
 import axios from 'axios'
 import AdminService from '@/services/AdminService';
+import moment from 'moment';
 
 export default {
     data () {
         return {
             alphabet:['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
-            info:'',
+            info:[],
             search:'',
             fields: [
                 { key: 'index', label: 'STT', sortable: true, sortDirection: 'desc' },
                 { key: 'tenDeTai', label: 'TÊN ĐỀ TÀI', sortable: true, sortDirection: 'desc' },
                 { key: 'nghienCuuSinh', label: 'NGHIÊN CỨU SINH', sortable: true, sortDirection: 'desc' },
                 { key: 'nguoiHuongDan', label: 'NGƯỜI HƯỚNG DẪN', sortable: true, sortDirection: 'desc' },
-                { key: 'ngayBaoVe', label: 'NGÀY BẢO VỆ', sortable: true, sortDirection: 'desc' },
+                { key: 'ngayBaoVe', label: 'NGÀY BẢO VỆ', sortable: true, sortDirection: 'desc',formatter: value => moment(value).locale('vi_VN').format('LLLL') },
             ],
             
             totalRows: 1,
@@ -142,6 +147,9 @@ export default {
             this.totalRows = filteredItems.length
             this.currentPage = 1
         },
+        moment: function () {
+            return moment();
+      },
     }
 }
 

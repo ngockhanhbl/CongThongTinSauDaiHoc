@@ -17,11 +17,12 @@
 </template>
 
 <script>
+import { mapGetters} from "vuex";
 export default {
     data() {
       return {
         news:[
-          {id:1,title:'Some quick example text to build on the card and make up the bulk of the card',src:'https://placekitten.com/1000/300'},
+          {id:1,title:'Some quick example text to build on the card and make up the bulk of the card111',src:'https://placekitten.com/1000/300'},
           {id:2,title:'Some quick example text to build on the card and make up the bulk of the card',src:'https://placekitten.com/1000/300'},
           {id:3,title:'Some quick example text to build on the card and make up the bulk of the card',src:'https://placekitten.com/1000/300'},
           {id:4,title:'Some quick example text to build on the card and make up the bulk of the card',src:'https://placekitten.com/1000/300'},
@@ -34,7 +35,10 @@ export default {
       }
     },
     methods: {
-    }
+    },
+    computed: {
+        ...mapGetters(["suKien"]),
+      },
   }
 </script>
 

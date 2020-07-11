@@ -5,12 +5,15 @@ module.exports = (sequelize, DataTypes) => {
             type:DataTypes.STRING,
             allowNull: false
         },
-        des:{
+        type:{
             type:DataTypes.TEXT,
             allowNull: false
         },
+        des:{
+            type:DataTypes.TEXT,
+        },
         image:{
-            type:DataTypes.BLOB,
+            type:DataTypes.TEXT,
         }
     })
     return TinTuc

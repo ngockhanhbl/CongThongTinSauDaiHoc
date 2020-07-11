@@ -20,7 +20,6 @@ export default {
   
   name: "app",
   components: {
-    // 'app-login':Login,
     "app-header": Header,
     "app-footer": Footer
   },

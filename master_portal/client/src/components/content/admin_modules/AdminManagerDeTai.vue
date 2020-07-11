@@ -44,6 +44,8 @@
                         @filtered="onFiltered"
                       >
 
+   
+
                         <template slot="actions" slot-scope="row" >
                           <b-button size="sm" @click="DeTaiDetails(row.item, row.index, $event.target)">
                             <img src="@/assets/images/contract.svg" /> 
@@ -355,7 +357,7 @@ import {db, storage} from '../../firebaseInit'
     
     filters: {
       moment: function (date) {
-        return moment(date).locale('de').format('LLLL');
+        return moment(date).locale('vi_VN').format('LLLL');
       }
     },
   }

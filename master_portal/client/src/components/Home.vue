@@ -146,17 +146,29 @@
 <script>
 import News from '@/components/content/News.vue'
 import ThongBao from '@/components/content/ThongBao.vue'
+import AdminService from '@/services/AdminService';
 
   export default {
     data() {
       return {
         slide: 0,
-        sliding: null
+        sliding: null,
+        tintuc:[]
       }
     },
     components: {
       "app-news": News,
       "app-thongbao": ThongBao,
+    },
+    async mounted() {
+      this.tintuc = (await AdminService.getAllTinTuc()).data
+      var thongbao = this.tintuc.filter(x=>x.type = 'Thông Báo')
+      var sukien = this.tintuc.filter(x=>x.type = 'Tin Tức Và Sự Kiện')
+      var tuyensinhcaohoc = this.tintuc.filter(x=>x.type = 'Thông Báo')
+
+      this.$store.dispatch("setSuKien",sukien);
+      this.$store.dispatch("setThongBao",thongbao);
+      this.$store.dispatch("setTuyenSinh",tuyensinhcaohoc);
     },
     methods: {
       onSlideStart() {

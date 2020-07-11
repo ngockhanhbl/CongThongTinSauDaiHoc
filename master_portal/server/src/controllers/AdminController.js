@@ -8,6 +8,7 @@ const {JobDetails} = require('../models')
 const {JobCV} = require('../models')
 
 const {DeTai} = require('../models')
+const {TinTuc} = require('../models')
 
 
 module.exports = {
@@ -357,6 +358,63 @@ module.exports = {
         error: 'có lỗi xãy ra trong quá trình lấy dữ liệu'+err
       })
     }
+  },
+  async SendRequestCreateTinTuc (req, res) {
+    var id;
+    try {
+      const {title,type,des,image} = req.body;
+      await TinTuc.create(
+        {
+          title:title,
+          type:type,
+          des:des,
+          image:image
+      }).then(function (record) {
+        res.status(200).send({
+          message:'thêm tin tức thành công',
+          payload:id
+        })
+      });
+    } catch (err) {
+      res.status(500).send({
+        error: 'có lỗi xãy ra trong quá trình tạo mới dữ liệu'
+      })
+    }
+  },
+  async SendRequestUpdateTinTuc (req, res) {
+    try {
+      const {id,title,type,des,image} = req.body;
+      await TinTuc.update({
+        id:id,
+        title:title,
+        type:type,
+        des:des,
+        image:image,
+      },
+      {
+        where:{id:id}
+      }).then(function (record){
+        res.status(200).send({
+          message:'cập nhật thành công',
+        })
+      })
+    }catch (err) {
+      res.status(500).send({
+        error: 'có lỗi xãy ra trong quá trình cập nhập dữ liệu'
+      })
+    }
+  },
+  async getAllTinTuc (req, res) {
+      try {
+        const jobs = await TinTuc.findAll()
+        res.status(200).send(
+          jobs
+        )
+      } catch (err) {
+        res.status(500).send({
+          error: 'có lỗi xãy ra trong quá trình lấy dữ liệu'+err
+        })
+      }
   },
   async SendRequestCreateDeTai (req, res) {
     var idjob;

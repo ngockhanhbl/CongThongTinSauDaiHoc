@@ -34,6 +34,15 @@ export default {
   SendRequestCreateDeTai (payload) {
     return Api().post(`SendRequestCreateDeTai`, payload)
   },
+  SendRequestCreateTinTuc (payload) {
+    return Api().post(`SendRequestCreateTinTuc`, payload)
+  },
+  getAllTinTuc () {
+    return Api().get(`getAllTinTuc`)
+  },
+  SendRequestUpdateTinTuc(payload){
+    return Api().put(`SendRequestUpdateTinTuc`, payload)
+  },
   SendRequestUpdateJob(payload){
     return Api().put(`SendRequestUpdateJob`, payload)
   },

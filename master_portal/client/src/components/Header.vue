@@ -19,10 +19,14 @@
         <!-- <router-link to="/searchdrug"><b-nav-item href="/searchdrug">Tra Cứu Thuốc</b-nav-item></router-link>
         <router-link to="/aboutus"><b-nav-item href="/aboutus">Về Chúng Tôi</b-nav-item></router-link> -->
         <div class="d-flex align-items-center">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center" >
             <span class="icon"><img src="@/assets/images/login.svg"></span>
-            <router-link style="text-decoration: none; color: inherit;" to="/login"><b-nav-item href="/login">Đăng Nhập</b-nav-item></router-link>
+            <router-link style="text-decoration: none; color: inherit;" v-if="isUserLoggedIn === 'false' ||isUserLoggedIn === 'null' " to="/login"><b-nav-item href="/login">Đăng Nhập</b-nav-item></router-link>
+            <b-nav-item v-else @click="logout">Đăng Xuất</b-nav-item>
+
           </div>
+
+
           <div>
             <input type="text" placeholder="Tìm kiếm">
           </div>
@@ -128,7 +132,6 @@ export default {
       let limit = document.body.offsetHeight - window.innerHeight;
       window.scrollTo(0,limit/3);
     },
-
     
     async logout () {
       this.$store.dispatch('setToken', null)
@@ -141,11 +144,9 @@ export default {
     }
   }
 }
-
 </script>
 
 <style scoped>
-
 div ul a li a {
   color:#0b385b;
 }
@@ -156,7 +157,6 @@ div ul a li a {
     height: 15px;
     width: 15px;
 }
-
 input {
   border: 2px solid rgba(255, 255, 255);
   border-radius: 3px;
@@ -183,6 +183,5 @@ li a {
 /* .bg-dark {
     background-color: #343a40 !important;
 } */
-
 
 </style>
