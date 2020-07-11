@@ -561,6 +561,22 @@ module.exports = {
         })
       }
   },
+  async DeleteTinTuc (req, res) {
+    try {
+      TinTuc.destroy({
+        where: {
+          id:req.params.id
+        }
+      })
+      res.status(200).send({
+        message:'xóa tin thành công',
+      })
+    }catch (err) {
+      res.status(500).send({
+        error: 'có lỗi xãy ra trong quá trình cập nhập dữ liệu'
+      })
+    }
+},
   async SwitchJobStatus (req, res) {
     if(req.user.roles == 0){
       if(!req.body.id){

@@ -67,6 +67,9 @@ export default {
   DeleteJob (payload) {
     return Api().delete(`DeleteJob/${payload.id}`)
   },
+  DeleteTinTuc (payload) {
+    return Api().delete(`DeleteTinTuc/${payload.id}`)
+  },
   DeleteDeTai (payload) {
     return Api().delete(`DeleteDeTai/${payload.id}`)
   },

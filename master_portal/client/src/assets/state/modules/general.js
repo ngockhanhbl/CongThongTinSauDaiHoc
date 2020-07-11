@@ -53,7 +53,7 @@ export default {
             state.thongBao = user
           },
           setTuyenSinh(state, user) {
-            state.TuyenSinh = user
+            state.tuyenSinh = user
           },
 
     },

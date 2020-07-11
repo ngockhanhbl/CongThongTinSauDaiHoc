@@ -47,7 +47,7 @@
                           <b-button class="ml-3 mr-2" size="sm" @click="TinTucDetails(row.item, row.index, $event.target)" >
                             <img src="@/assets/images/contract.svg" />
                           </b-button>
-                          <b-button size="sm" @click="DeleteJob(row.item, row.index, $event.target)">
+                          <b-button size="sm" @click="DeleteTinTuc(row.item, row.index, $event.target)">
                             <img src="@/assets/images/delete.svg" /> 
                           </b-button> 
                         </template>
@@ -205,7 +205,7 @@ import {db, storage} from '../../firebaseInit'
           { key: 'id', label: 'ID', sortable: true, sortDirection: 'desc' },
           { key: 'type', label: 'Khoa'},
           { key: 'title', label: 'Tiêu Đề', sortable: true, class: 'text-center'},
-          { key: 'updatedAt', label: 'Thời Gian'},//,formatter: value => value.moment().format('MMMM Do YYYY, h:mm:ss a')
+          { key: 'updatedAt', label: 'Thời Gian',formatter: value => moment(value).locale('vi_VN').format('LLLL')},
           { key: 'actions', label: 'Hành động', class: 'action ' },
         ],
         
@@ -320,10 +320,10 @@ import {db, storage} from '../../firebaseInit'
           this.resetForm()
         }
       },
-      async DeleteJob(item,index,button){
+      async DeleteTinTuc(item,index,button){
         console.log(item.id)
         try{
-          const response = await AdminService.DeleteJob({
+          const response = await AdminService.DeleteTinTuc({
             id:item.id
           })
           if(response.status === 200){

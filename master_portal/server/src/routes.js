@@ -327,6 +327,11 @@ module.exports = (app) => {
    isAuthenticated,
    AdminController.DeleteJob)
 
+   app.delete(`/DeleteTinTuc/:id`,
+   AdminController.DeleteTinTuc)
+
+   
+
    app.delete(`/DeleteDeTai/:id`,
    AdminController.DeleteDeTai)
    

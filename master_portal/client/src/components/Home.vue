@@ -162,9 +162,15 @@ import AdminService from '@/services/AdminService';
     },
     async mounted() {
       this.tintuc = (await AdminService.getAllTinTuc()).data
-      var thongbao = this.tintuc.filter(x=>x.type = 'Thông Báo')
-      var sukien = this.tintuc.filter(x=>x.type = 'Tin Tức Và Sự Kiện')
-      var tuyensinhcaohoc = this.tintuc.filter(x=>x.type = 'Thông Báo')
+      var thongbao = this.tintuc.filter(x=>x.type == 'Thông Báo')
+      var sukien = this.tintuc.filter(x=>x.type == 'Tin Tức Và Sự Kiện')
+      var tuyensinhcaohoc = this.tintuc.filter(x=>x.type == 'Tuyển Sinh Cao Học')
+
+      console.log('tuyensinhcaohoc')
+      console.log(tuyensinhcaohoc)
+
+           console.log('sukien')
+      console.log(sukien)
 
       this.$store.dispatch("setSuKien",sukien);
       this.$store.dispatch("setThongBao",thongbao);
