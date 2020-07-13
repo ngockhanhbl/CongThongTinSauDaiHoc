@@ -73,6 +73,9 @@ export default {
   DeleteDeTai (payload) {
     return Api().delete(`DeleteDeTai/${payload.id}`)
   },
+  getTinTucByID (id) {
+    return Api().get(`getTinTucByID/${id}`)
+  },
 }
 
 

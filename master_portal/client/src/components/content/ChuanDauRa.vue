@@ -1,11 +1,9 @@
 <template>
     <div class="page-about">
      
-        <div class="mission">
+        <b-container>
             <strong class="title d-flex ">CHUẨN ĐẦU RA THẠC SĨ</strong>
-            <p>
-                <strong class="title2">Quyết định ban hành chuẩn đầu ra các chuyên ngành đào tạo trình độ Tiến sĩ tại Học viện Khoa học và Công nghệ</strong>
-            </p>
+            <strong class="title2">Quyết định ban hành chuẩn đầu ra các chuyên ngành đào tạo trình độ Tiến sĩ tại Trường Đại Học Tài Nguyên Và Môi Trường</strong>
             <div class="misson-content d-flex">Học viện KHCN đã ban hành số 1121/QĐ-HVKHCN về việc ban hành chuẩn đầu ra các chuyên ngành trình độ Tiến sĩ cụ thể như sau:
             </div>
             <div class="title3 pt-2">Xem Quyết định tại đây:
@@ -13,7 +11,7 @@
             </div>
 
 
-        </div>
+        </b-container>
     </div>
 </template>
 
@@ -36,14 +34,14 @@ export default {
           }
         ],
         items: [
-          { stt : 1, name: 'GS. TS. Nguyễn Đại Hưng', role: 'Giám đốc Học viện Khoa học và Công nghệ' },
+          { stt : 1, name: 'GS. TS. Nguyễn Đại Hưng', role: 'Giám đốc Trường Đại Học Tài Nguyên Và Môi Trường' },
           { stt : 2, name: 'GS. TS. Nguyễn Văn Tuyến', role: 'Chủ tịch Hội đồng Khoa Hóa học' },
           { stt : 3, name: 'GS. TS. Nguyễn Quang Liêm', role: 'Trưởng Khoa Toán học' },
-          { stt : 4, name: 'GS. TS. Phan Ngọc Minh', role: 'Phó Giám đốc Học viện Khoa học và Công nghệ' },
+          { stt : 4, name: 'GS. TS. Phan Ngọc Minh', role: 'Phó Giám đốc Trường Đại Học Tài Nguyên Và Môi Trường' },
           { stt : 5, name: 'PGS. TS. Chu Hoàng Hà', role: 'Trưởng phòng Thông Tin Và Viễn Thám' },
           { stt : 6, name: 'GS.TS. Trần Đại Lâm', role: 'Phó Viện trưởng Viện Kỹ thuật Nhiệt đới' },
           { stt : 7, name: 'PGS. TS. Huỳnh Tấn Phát', role: 'Trưởng phòng Công Nghệ Thông Tin' },
-          { stt : 8, name: 'TS. Nguyễn Diệu Trinh', role: 'Trưởng phòng, Trưởng phòng, Học viện Khoa học và Công nghệ' },
+          { stt : 8, name: 'TS. Nguyễn Diệu Trinh', role: 'Trưởng phòng, Trưởng phòng, Trường Đại Học Tài Nguyên Và Môi Trường' },
           { stt : 9, name: 'PGS.TS.Nguyễn Văn Sinh', role: 'Trưởng Khoa Sinh thái và Tài nguyên Sinh vật' },
         ]
       }
@@ -111,15 +109,15 @@ ul li:not(first-child)hover{
 }
 .title{
     font-size: 1.5rem;
-    margin:0 15vw 5vh;
+    padding-bottom: 1rem;
     color:#162138;   
 }
 .title2{
-    margin:0 15vw 5vh;
+   margin: 15px 0;
     color:#162138;   
 }
 .title3{
-    margin:0 15vw 5vh;
+ 
     color:#162138;   
 }
 .title_founder{
@@ -132,9 +130,10 @@ ul li:not(first-child)hover{
     
 }
 .misson-content{
-    margin: 0 15vw;
     line-height: 1.75;
     letter-spacing: 0.7px;
+    padding-top: 10px;
+
 }
 .aboutteam{
     margin-top: 10vh;

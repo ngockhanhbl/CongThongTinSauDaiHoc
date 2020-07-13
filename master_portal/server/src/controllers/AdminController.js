@@ -412,9 +412,23 @@ module.exports = {
         )
       } catch (err) {
         res.status(500).send({
-          error: 'có lỗi xãy ra trong quá trình lấy dữ liệu'+err
+          error: 'có lỗi xãy ra trong quá trình lấy dữ liệu' + err
         })
       }
+  },
+  async getTinTucByID (req, res) {
+    try {
+      const tintuc = await TinTuc.findOne({
+        where:{
+          id: req.params.id
+        }
+      })
+      res.send(tintuc)
+    } catch (err) { 
+      res.status(500).send({                   
+        error: 'xãy ra lỗi trong quá trình lấy dữ liệu ' + err
+      })
+    }
   },
   async SendRequestCreateDeTai (req, res) {
     var idjob;

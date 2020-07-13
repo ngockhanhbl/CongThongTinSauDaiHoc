@@ -50,8 +50,8 @@
 
             <b-nav-item-dropdown id="nav7_ddown" right >
               <template slot="button-content" ><span class="text-white">TUYỂN SINH</span></template>
-              <router-link style="text-decoration: none; color: inherit;" to="/jobs">
-                <b-dropdown-item href="/jobs">Đăng Kí</b-dropdown-item>
+              <router-link style="text-decoration: none; color: inherit;" to="/tuyensinh">
+                <b-dropdown-item href="/tuyensinh">Đăng Kí</b-dropdown-item>
               </router-link>
               
             </b-nav-item-dropdown>            

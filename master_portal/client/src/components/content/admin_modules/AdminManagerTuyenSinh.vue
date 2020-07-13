@@ -65,7 +65,7 @@
                         </template>
                         
                         <template slot="actions" slot-scope="row" >
-                          <b-button size="sm" class="ml-3 mr-2" @click="PauseJob(row.item, row.index, $event.target)" >
+                          <b-button size="sm"  @click="PauseJob(row.item, row.index, $event.target)" >
                             <img src="@/assets/images/pause.svg" /> 
                           </b-button> 
                           <b-button size="sm" @click="DeleteJob(row.item, row.index, $event.target)">

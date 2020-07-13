@@ -44,7 +44,7 @@
                         @filtered="onFiltered"
                       >
                         <template slot="actions" slot-scope="row" >
-                          <b-button class="ml-3 mr-2" size="sm" @click="TinTucDetails(row.item, row.index, $event.target)" >
+                          <b-button size="sm" @click="TinTucDetails(row.item, row.index, $event.target)" >
                             <img src="@/assets/images/contract.svg" />
                           </b-button>
                           <b-button size="sm" @click="DeleteTinTuc(row.item, row.index, $event.target)">
@@ -409,6 +409,10 @@ import {db, storage} from '../../firebaseInit'
     font-size: 14px;
     font-family: "Roboto","Helvetica","Arial",sans-serif;
     color: rgba(0,0,0,.54);
+}
+img {
+  max-width: 200px;
+  max-height: 200px;
 }
 .bg{
     background-repeat: no-repeat;

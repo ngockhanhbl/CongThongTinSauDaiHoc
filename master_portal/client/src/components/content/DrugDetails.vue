@@ -1,47 +1,16 @@
 <template >
-<div class="pt-5">
-      <div v-if="info">          
-            <div class="name d-flex justify-content-center mb-4">{{info.tenThuoc}}</div>
-      </div>
-      <div class="d-flex">
-            <div class="row col-sm-12 main-info">
-                  <div class="col-md-5 image">
-                        <div v-if="info.images == null"><img src="https://via.placeholder.com/640x480.png?text=%E1%BA%A2NH+S%E1%BA%A2N+PH%E1%BA%A8M+640x480" /></div>
-                        <div v-else><img :src='url'  onerror="this.onerror=null;this.src='https://via.placeholder.com/640x480.png?text=%E1%BA%A2NH+S%E1%BA%A2N+PH%E1%BA%A8M+640x480';" /></div>
-                  </div>
-                  <div class="col-md-7">
-                        <div class="col-md-12 d-flex element" v-for="(item,index) in title" :key='index'>
-                              <div class="col-md-4 title" >
-                                    {{item.value}}
+      <div>
+            <b-container>
+                  <b-row >
+                        <b-col cols="8">
+                              <div class="bg">
+                                    ABC
                               </div>
-                              <div class="col-md-8">{{info[`${item.key}`]}}</div>
-                        </div>
-                        <div class="col-md-12 d-flex title ml-1 mt-2" >
-                              Giá buôn bán kê khai
-                        </div>
-                        <p class="col-md-12 d-flex " >
-                              Giá bán buôn không được cao hơn giá bán buôn kê khai.Thặng dư giá bán lẽ không được
-                              cao hơn thặng dư tối đa với từng loại thuốc theo quy định.
-                        </p>
-                        <div v-if="manifests !== null">
-                              <b-table striped hover :items="manifests" :fields="fields_manifests"></b-table>
-                        </div>
-                  </div>
-
-
-                  <span class="mt-4 container" v-if="BidPrices.length">
-                        <p class="col-md-12 d-flex title" >
-                              Giá Trúng Thầu
-                        </p>
-                        <div v-if="BidPrices !== null" >
-                              <b-table striped hover :items="BidPrices" :fields="fields_BidPrices"></b-table>
-                        </div>
-                  </span>
-
-
-            </div>
+                        </b-col>
+                        <b-col>3 of 3</b-col>
+                  </b-row>
+            </b-container>
       </div>
-</div>
 </template>
 
 
@@ -145,27 +114,7 @@ export default {
 }
 </script>
 <style scoped>
-.name{
-      background: #40c4ff;
-      color:#fff;
-      padding:.25rem;
-      font-size: 1.2rem;
+.bg{
+      background: #ccc;
 }
-.image div{
-      display: flex;
-      justify-content: end;
-      margin: auto;
-}
-.image img{
-      height: calc(40vw/(640/480));
-      width:40vw;
-}
-.element{
-      padding:.5rem .25rem;
-}
-.title{
-      color:#192559;
-      font-weight:bold;
-}
-
 </style>

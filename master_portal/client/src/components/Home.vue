@@ -166,12 +166,7 @@ import AdminService from '@/services/AdminService';
       var sukien = this.tintuc.filter(x=>x.type == 'Tin Tức Và Sự Kiện')
       var tuyensinhcaohoc = this.tintuc.filter(x=>x.type == 'Tuyển Sinh Cao Học')
 
-      console.log('tuyensinhcaohoc')
-      console.log(tuyensinhcaohoc)
-
-           console.log('sukien')
-      console.log(sukien)
-
+      this.$store.dispatch("setTinTuc",this.tintuc);
       this.$store.dispatch("setSuKien",sukien);
       this.$store.dispatch("setThongBao",thongbao);
       this.$store.dispatch("setTuyenSinh",tuyensinhcaohoc);

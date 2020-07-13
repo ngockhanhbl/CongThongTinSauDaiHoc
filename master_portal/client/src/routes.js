@@ -1,8 +1,8 @@
 import Home from "./components/Home";
 const Login = () => import ("./components/content/Login");
 const FAQs = () => import ("./components/content/FAQs");
-const Jobs = () => import ("./components/content/Jobs");
-const JobDetails = () => import ("./components/content/JobDetails");
+const TuyenSinh = () => import ("./components/content/TuyenSinh");
+const TuyenSinhChiTiet = () => import ("./components/content/TuyenSinhChiTiet");
 const Aboutus = () => import ("./components/content/Aboutus");
 const RegisterHospital = () => import ("./components/content/RegisterHospital");
 const RegisterPatient = () => import ("./components/content/RegisterPatient");
@@ -23,6 +23,9 @@ const DrugDetails = () => import ("./components/content/DrugDetails");
 const PatientData = () => import ("./components/content/patient_modules/PatientData");
 const DrugManagement = () => import ("./components/content/hospital_modules/DrugManagement");
 
+const TinTucDetails = () => import ("./components/content/TinTucDetails");
+
+
 import News from "./components/content/News";
 import ThongBao from "./components/content/ThongBao";
 const DeTaiKhoaHoc = () => import ("./components/content/DeTaiKhoaHoc");
@@ -37,8 +40,8 @@ export const routes = [
   { path: "/", name: "homepage", component: Home },
   { path: "/faqs", name: "faqs", component: FAQs },
   { path: "/login", name: "login", component: Login },
-  { path: "/jobs", name: "jobs", component: Jobs },
-  { path: "/jobdetails/:id", name: "jobdetails", component: JobDetails },
+  { path: "/tuyensinh", name: "tuyensinh", component: TuyenSinh },
+  { path: "/tuyensinhchitiet/:id", name: "tuyensinhchitiet", component: TuyenSinhChiTiet },
   { path: "/aboutus", name: "aboutus", component: Aboutus },
   { path: "/registerhospital", name: "registerhospital", component: RegisterHospital },
   { path: "/registerpatient", name: "registerpatient", component: RegisterPatient },
@@ -58,6 +61,9 @@ export const routes = [
   { path: "/DrugDetails/:id", name: "drugdetails", component: DrugDetails },
   { path: "/UpdateInformationRegister", name: "UpdateInformationRegister", component: UpdateInformationRegister },
   { path: "/PatientData", name: "patientdata", component: PatientData },
+
+  { path: "/TinTucDetails/:id", name: "tintucdetails", component: TinTucDetails },
+
 
 
   { path: "/News", name: "news", component: News },

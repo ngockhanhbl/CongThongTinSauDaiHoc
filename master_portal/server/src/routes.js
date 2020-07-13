@@ -77,6 +77,8 @@ module.exports = (app) => {
     isAuthenticated,
     PatientsController.getInfoPatient),
 
+ 
+
     app.get('/getInfoGeneralPatient/:id_patient',
     isAuthenticated,
     PatientsController.getInfoGeneralPatient),
@@ -307,6 +309,9 @@ module.exports = (app) => {
    
    app.get('/getAllTinTuc',
    AdminController.getAllTinTuc)
+
+   app.get('/getTinTucByID/:id',
+   AdminController.getTinTucByID),
 
    app.put(`/SendRequestUpdateTinTuc/`,
    AdminController.SendRequestUpdateTinTuc)

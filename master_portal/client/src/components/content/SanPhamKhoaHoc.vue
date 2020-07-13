@@ -105,7 +105,6 @@ export default {
 <style scoped>
 .master {
   max-width: 1180px;
-  text-align: center;
   margin: 0 auto;
   padding: 0 3rem;
 }
@@ -137,8 +136,7 @@ export default {
 }
 .text_content{
     color:#0b3b5b;
-    padding-top:.25rem;
-    padding-left:.25rem;
+    padding-left:1rem;
 }
 .vol_card{
     border:1px dotted #ccc;
@@ -149,13 +147,17 @@ export default {
 .title{
     font-size:.9rem;
     line-height:0.1px;
-    padding-bottom:10px;
 }
 .content{
     font-size:.8rem;
+    margin-top:.3rem;
+    margin-bottom:.5rem;
+
 }
 .no_border{
         border:0;
     border-radius:0;
+    margin-bottom:.2rem;
+
 }
 </style>

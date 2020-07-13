@@ -10,6 +10,7 @@ export default {
         suKien:null,
         thongBao:null,
         tuyenSinh:null,
+        tinTuc:null,
 
     },
     getters: {
@@ -22,6 +23,7 @@ export default {
       suKien: state => state.suKien,
       thongBao: state => state.thongBao,
       tuyenSinh: state => state.tuyenSinh,
+      tinTuc: state => state.tinTuc,
 
     },
     mutations: {
@@ -55,7 +57,9 @@ export default {
           setTuyenSinh(state, user) {
             state.tuyenSinh = user
           },
-
+          setTinTuc(state, user) {
+            state.tinTuc = user
+          },
     },
     actions: {
         setToken ({commit}, token) {
@@ -82,6 +86,9 @@ export default {
         },
         setTuyenSinh ({commit}, user) {
           commit('setTuyenSinh', user)
+        },
+        setTinTuc ({commit}, user) {
+          commit('setTinTuc', user)
         },
 
       }
