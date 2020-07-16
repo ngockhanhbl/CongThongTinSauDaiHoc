@@ -23,7 +23,7 @@
                     <b-col cols="3" class="p-0">
                       <b-row>
                         <b-col cols="12" v-for="(val, index) in tuyenSinh " :key="index">
-                          <b-card v-if="index" class="card_left_img" img-left :img-src="val.image | getUrl">
+                          <b-card v-if="index && index < 4" class="card_left_img" img-left :img-src="val.image | getUrl">
                             <b-card-text v-if="val.title" @click="getTinTucDetail(val.id)">
                                 {{val.title}}
                             </b-card-text>
@@ -65,9 +65,12 @@ export default {
     },
    
     computed: {
-      ...mapGetters(["thongBao","tuyenSinh"]),
+      ...mapGetters(["tuyenSinh"]),
       tuyenSinh () {
         return this.$store.getters.tuyenSinh
+      },
+      thongBao () {
+        return this.$store.getters.thongBao && this.$store.getters.thongBao.reverse().filter((val,idx) => idx < 6)
       }
       
     },

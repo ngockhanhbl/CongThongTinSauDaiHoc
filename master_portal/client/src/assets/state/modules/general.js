@@ -3,10 +3,6 @@ export default {
         isUserLoggedIn: false,
         token: null,
         user: null,
-        doctorInfo:null,
-        hospitalInfo:null,
-        patientInfo:null,
-
         suKien:null,
         thongBao:null,
         tuyenSinh:null,
@@ -16,9 +12,6 @@ export default {
     getters: {
       user: state => state.user,
       isUserLoggedIn: state => state.isUserLoggedIn,
-      patientInfo:state => state.patientInfo,
-      doctorInfo: state => state.doctorInfo,
-      hospitalInfo: state => state.hospitalInfo,
 
       suKien: state => state.suKien,
       thongBao: state => state.thongBao,
@@ -37,16 +30,6 @@ export default {
             localStorage.setItem("user", JSON.stringify(user));
             state.user = user
           },
-          setDoctorInfo(state, user) {
-            state.doctorInfo = user
-          },
-          setHospitalInfo(state, user) {
-            state.hospitalInfo = user
-          },
-          set_patientInfo(state, user) {
-            state.patientInfo = user
-          },
-
 
           setSuKien(state, user) {
             state.suKien = user
@@ -68,12 +51,7 @@ export default {
         setUser ({commit}, user) {
           commit('setUser', user)
         },
-        setDoctorInfo ({commit}, user) {
-          commit('setDoctorInfo', user)
-        },
-        setHospitalInfo ({commit}, user) {
-          commit('setHospitalInfo', user)
-        },
+       
         set_patientInfo ({commit}, user) {
           commit('set_patientInfo', user)
         },

@@ -4,25 +4,13 @@ const FAQs = () => import ("./components/content/FAQs");
 const TuyenSinh = () => import ("./components/content/TuyenSinh");
 const TuyenSinhChiTiet = () => import ("./components/content/TuyenSinhChiTiet");
 const Aboutus = () => import ("./components/content/Aboutus");
-const RegisterHospital = () => import ("./components/content/RegisterHospital");
-const RegisterPatient = () => import ("./components/content/RegisterPatient");
 const Terms = () => import ("./components/content/Terms");
 const Policy = () => import ("./components/content/Policy");
 const Partner = () => import ("./components/content/Partner");
 const Contact = () => import ("./components/content/Contact");
-const Patient = () => import ("./components/content/Patient");
-const Doctor = () => import ("./components/content/Doctor");
-const Hospital = () => import ("./components/content/Hospital");
 const Admin = () => import ("./components/content/Admin");
-const AddDoctor = () => import ("./components/content/hospital_modules/AddDoctor");
-const ChangeInfo = () => import ("./components/content/hospital_modules/ChangeInfo");
-const UpdateInformationRegister = () => import ("./components/content/UpdateInformationRegister");
 const Thanks = () => import ("./components/content/Thanks");
 const TraCuuDeTai = () => import ("./components/content/TraCuuDeTai");
-const DrugDetails = () => import ("./components/content/DrugDetails");
-const PatientData = () => import ("./components/content/patient_modules/PatientData");
-const DrugManagement = () => import ("./components/content/hospital_modules/DrugManagement");
-
 const TinTucDetails = () => import ("./components/content/TinTucDetails");
 
 
@@ -43,25 +31,13 @@ export const routes = [
   { path: "/tuyensinh", name: "tuyensinh", component: TuyenSinh },
   { path: "/tuyensinhchitiet/:id", name: "tuyensinhchitiet", component: TuyenSinhChiTiet },
   { path: "/aboutus", name: "aboutus", component: Aboutus },
-  { path: "/registerhospital", name: "registerhospital", component: RegisterHospital },
-  { path: "/registerpatient", name: "registerpatient", component: RegisterPatient },
   { path: "/Terms", name: "terms", component: Terms },
   { path: "/Policy", name: "policy", component: Policy },
   { path: "/Partner", name: "partner", component: Partner },
   { path: "/Contact", name: "contact", component: Contact },
-  { path: "/Patient/:id", name: "patient", component: Patient },
-  { path: "/Doctor", name: "doctor", component: Doctor },
-  { path: "/Hospital/:id", name: "hospital", component: Hospital },
-  { path: "/Hospital/:id/addDoctor", name: "addDoctor", component: AddDoctor },
-  { path: "/Hospital/:id/ChangeInfo", name: "changeInfo", component: ChangeInfo },
-  { path: "/Hospital/:id/DrugManagement", name: "DrugManagement", component: DrugManagement },
   { path: "/Admin", name: "admin", component: Admin },
   { path: "/Thanks", name: "thanks", component: Thanks },
   { path: "/TraCuuDeTai", name: "tracuudetai", component: TraCuuDeTai },
-  { path: "/DrugDetails/:id", name: "drugdetails", component: DrugDetails },
-  { path: "/UpdateInformationRegister", name: "UpdateInformationRegister", component: UpdateInformationRegister },
-  { path: "/PatientData", name: "patientdata", component: PatientData },
-
   { path: "/TinTucDetails/:id", name: "tintucdetails", component: TinTucDetails },
 
 

@@ -105,9 +105,9 @@
 import { mapGetters} from "vuex";
 export default {
   data(){
-    return {
+    return{
       get isUserLoggedIn() {
-      	return localStorage.getItem('isUserLoggedIn' || false);
+        return localStorage.getItem('isUserLoggedIn' || false);
       }
     }
   },

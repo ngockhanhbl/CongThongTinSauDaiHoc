@@ -32,7 +32,9 @@ export default {
       }
     },
     computed: {
-        ...mapGetters(["suKien"]),
+        suKien () {
+          return this.$store.getters.suKien && this.$store.getters.suKien.reverse()
+        }
       },
     filters: {
       getUrl: function (value) {

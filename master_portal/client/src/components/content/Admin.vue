@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import AdminManager from '@/components/content/admin_modules/AdminManager.vue'
-import { mapGetters} from "vuex";
   export default {
     data(){
       return{
@@ -25,8 +23,6 @@ import { mapGetters} from "vuex";
       }
     },
     components: {
-      "app-AdminManager": AdminManager,
-      AdminManagerRegister: () =>import('@/components/content/admin_modules/AdminManagerRegister.vue'),
       AdminSupport: () =>import('@/components/content/admin_modules/AdminSupport.vue'),
       AdminManagerTuyenSinh: () =>import('@/components/content/admin_modules/AdminManagerTuyenSinh.vue'),
       AdminManagerDeTai: () =>import('@/components/content/admin_modules/AdminManagerDeTai.vue'),

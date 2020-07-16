@@ -1,8 +1,4 @@
-const {Patient} = require('../models')
-const {Hospital} = require('../models')
 const {Account} = require('../models')
-const {Doctor} = require('../models')
-const {HospitalRegister} = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
 
@@ -25,52 +21,6 @@ module.exports = {
       } catch (err) {
         res.status(400).send({
           error: 'Tài khoản email đã được sử dụng ' + err
-        })
-      }
-    },
-    async RegisterHospitalRequest (req, res) {
-      try {
-        const user = await HospitalRegister.create(req.body)
-        const userJson = user.toJSON()
-        res.send({
-          user: userJson,
-        })
-      } catch (err) {
-        res.status(400).send({
-          error: 'Tài khoản email đã được sử dụng '+ err
-        })
-      }
-    },
-    async patient (req, res) {
-      try {       
-        const patient = await Patient.create(req.body)
-        const patientJson = patient.toJSON()
-        res.send(patientJson)
-      } catch (err) {
-        res.status(400).send({
-          error: 'Có lỗi xãy ra ' + err
-        })
-      }
-    },
-    async hospital (req, res) {
-      try {
-        const hospital = await Hospital.create(req.body)
-        const hospitalJson = hospital.toJSON()
-        res.send(hospitalJson)
-      } catch (err) {
-        res.status(400).send({
-          error: 'Có lỗi xãy ra '+err
-        })
-      }
-    },
-    async doctor (req, res) {
-      try {       
-        const doctor = await Doctor.create(req.body)
-        const doctorJson = doctor 
-        res.send(doctorJson)
-      } catch (err) {
-        res.status(400).send({
-          error: 'Tài khoản email đã được sử dụng'+ err
         })
       }
     },

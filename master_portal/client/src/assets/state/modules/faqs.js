@@ -1,14 +1,14 @@
 export default {
   state: {
     show_down_up: [
-      { image: "/img/down-arrow.25471282.svg", isShow: false },
-      { image: "/img/down-arrow.25471282.svg", isShow: false },
-      { image: "/img/down-arrow.25471282.svg", isShow: false },
-      { image: "/img/down-arrow.25471282.svg", isShow: false },
-      { image: "/img/down-arrow.25471282.svg", isShow: false },
-      { image: "/img/down-arrow.25471282.svg", isShow: false },
-      { image: "/img/down-arrow.25471282.svg", isShow: false },
-      { image: "/img/down-arrow.25471282.svg", isShow: false }
+      { image: "/img/down-arrow.9d2ca72a.svg", isShow: false },
+      { image: "/img/down-arrow.9d2ca72a.svg", isShow: false },
+      { image: "/img/down-arrow.9d2ca72a.svg", isShow: false },
+      { image: "/img/down-arrow.9d2ca72a.svg", isShow: false },
+      { image: "/img/down-arrow.9d2ca72a.svg", isShow: false },
+      { image: "/img/down-arrow.9d2ca72a.svg", isShow: false },
+      { image: "/img/down-arrow.9d2ca72a.svg", isShow: false },
+      { image: "/img/down-arrow.9d2ca72a.svg", isShow: false }
     ]
   },
   getters: {
@@ -28,9 +28,9 @@ export default {
           state.show_down_up[0].isShow = !state.show_down_up[0].isShow;
 
           if (state.show_down_up[0].isShow == true) {
-            state.show_down_up[0].image = "/img/up-arrow.22c6ec62.svg";
+            state.show_down_up[0].image = "/img/up-arrow.1715d581.svg";
           } else {
-            state.show_down_up[0].image = "/img/down-arrow.25471282.svg";
+            state.show_down_up[0].image = "/img/down-arrow.9d2ca72a.svg";
           }
           break;
 
@@ -38,9 +38,9 @@ export default {
           state.show_down_up[1].isShow = !state.show_down_up[1].isShow;
 
           if (state.show_down_up[1].isShow == true) {
-            state.show_down_up[1].image = "/img/up-arrow.22c6ec62.svg";
+            state.show_down_up[1].image = "/img/up-arrow.1715d581.svg";
           } else {
-            state.show_down_up[1].image = "/img/down-arrow.25471282.svg";
+            state.show_down_up[1].image = "/img/down-arrow.9d2ca72a.svg";
           }
           break;
 
@@ -48,9 +48,9 @@ export default {
           state.show_down_up[2].isShow = !state.show_down_up[2].isShow;
 
           if (state.show_down_up[2].isShow == true) {
-            state.show_down_up[2].image = "/img/up-arrow.22c6ec62.svg";
+            state.show_down_up[2].image = "/img/up-arrow.1715d581.svg";
           } else {
-            state.show_down_up[2].image = "/img/down-arrow.25471282.svg";
+            state.show_down_up[2].image = "/img/down-arrow.9d2ca72a.svg";
           }
           break;
 
@@ -58,9 +58,9 @@ export default {
           state.show_down_up[3].isShow = !state.show_down_up[3].isShow;
 
           if (state.show_down_up[3].isShow == true) {
-            state.show_down_up[3].image = "/img/up-arrow.22c6ec62.svg";
+            state.show_down_up[3].image = "/img/up-arrow.1715d581.svg";
           } else {
-            state.show_down_up[3].image = "/img/down-arrow.25471282.svg";
+            state.show_down_up[3].image = "/img/down-arrow.9d2ca72a.svg";
           }
           break;
 
@@ -68,9 +68,9 @@ export default {
           state.show_down_up[4].isShow = !state.show_down_up[4].isShow;
 
           if (state.show_down_up[4].isShow == true) {
-            state.show_down_up[4].image = "/img/up-arrow.22c6ec62.svg";
+            state.show_down_up[4].image = "/img/up-arrow.1715d581.svg";
           } else {
-            state.show_down_up[4].image = "/img/down-arrow.25471282.svg";
+            state.show_down_up[4].image = "/img/down-arrow.9d2ca72a.svg";
           }
           break;
 
@@ -78,9 +78,9 @@ export default {
           state.show_down_up[5].isShow = !state.show_down_up[5].isShow;
 
           if (state.show_down_up[5].isShow == true) {
-            state.show_down_up[5].image = "/img/up-arrow.22c6ec62.svg";
+            state.show_down_up[5].image = "/img/up-arrow.1715d581.svg";
           } else {
-            state.show_down_up[5].image = "/img/down-arrow.25471282.svg";
+            state.show_down_up[5].image = "/img/down-arrow.9d2ca72a.svg";
           }
           break;
 
@@ -88,9 +88,9 @@ export default {
           state.show_down_up[6].isShow = !state.show_down_up[6].isShow;
 
           if (state.show_down_up[6].isShow == true) {
-            state.show_down_up[6].image = "/img/up-arrow.22c6ec62.svg";
+            state.show_down_up[6].image = "/img/up-arrow.1715d581.svg";
           } else {
-            state.show_down_up[6].image = "/img/down-arrow.25471282.svg";
+            state.show_down_up[6].image = "/img/down-arrow.9d2ca72a.svg";
           }
           break;
 
@@ -98,9 +98,9 @@ export default {
           state.show_down_up[7].isShow = !state.show_down_up[7].isShow;
 
           if (state.show_down_up[7].isShow == true) {
-            state.show_down_up[7].image = "/img/up-arrow.22c6ec62.svg";
+            state.show_down_up[7].image = "/img/up-arrow.1715d581.svg";
           } else {
-            state.show_down_up[7].image = "/img/down-arrow.25471282.svg";
+            state.show_down_up[7].image = "/img/down-arrow.9d2ca72a.svg";
           }
           break;
         default:

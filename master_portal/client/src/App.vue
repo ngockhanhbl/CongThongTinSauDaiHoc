@@ -1,6 +1,6 @@
 
 <template>
-  <div id="app" v-scroll="ScrollSticky">
+  <div id="app" >
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <app-login /> -->
     <app-header/>
@@ -30,9 +30,7 @@ export default {
     }
   },
   methods:{
-    ScrollSticky(evt, el){
-      this.$store.dispatch("EventScrollSticky",evt,el);
-    }
+    
   },
     computed:{
     ...mapGetters(["isScroll"]),

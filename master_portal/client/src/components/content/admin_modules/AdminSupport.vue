@@ -67,6 +67,8 @@
 <script>
 import GeneralService from '@/services/GeneralService'
 import AdminService from '@/services/AdminService'
+import moment from 'moment';
+
   export default {
     data() {
       return {
@@ -75,7 +77,7 @@ import AdminService from '@/services/AdminService'
           {key: 'name', label: 'Họ Và Tên', sortable: true, class: 'text-center'},
           { key: 'email', label: 'Email'},
           { key: 'message', label: 'Lời Nhắn'},
-          { key: 'createdAt', label: 'Thời Gian'},
+          { key: 'createdAt', label: 'Thời Gian', formatter: value => moment(value).locale('vi_VN').format('LLLL')},
           { key: 'actions', label: 'Hành động', class: 'd-flex justify-content-center ' }
         ],
         totalRows: 1,
@@ -112,7 +114,15 @@ import AdminService from '@/services/AdminService'
         this.totalRows = filteredItems.length
         this.currentPage = 1
       },
-    }
+      moment: function () {
+        return moment();
+      },
+    },
+    filters: {
+      moment: function (date) {
+        return moment(date).locale('vi_VN').format('LLLL');
+      }
+    },
   }
 </script>
 
